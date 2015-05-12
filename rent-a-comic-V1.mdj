@@ -4554,9 +4554,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 4,
+									"left": 3,
 									"top": 120,
-									"width": 501,
+									"width": 502,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 1.12579465375185,
@@ -4566,7 +4566,7 @@
 									},
 									"edgePosition": 2,
 									"underline": false,
-									"text": "+@ORM\\OneToMany(targetEntity=\"AppBundle\\Entity\\Serie\", mappedBy=\"categories\")",
+									"text": "+@ORM\\ManyToOne(targetEntity=\"AppBundle\\Entity\\Serie\", inversedBy=\"categories\")",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -8348,6 +8348,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -9345,6 +9346,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -9498,6 +9500,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -9700,7 +9703,7 @@
 								"_parent": {
 									"$ref": "AAAAAAFNQmPGaNICWq8="
 								},
-								"name": "@ORM\\OneToMany(targetEntity=\"AppBundle\\Entity\\Serie\", mappedBy=\"categories\")",
+								"name": "@ORM\\ManyToOne(targetEntity=\"AppBundle\\Entity\\Serie\", inversedBy=\"categories\")",
 								"reference": {
 									"$ref": "AAAAAAFNQlLTmrzE6nc="
 								},
@@ -10368,6 +10371,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
