@@ -22,6 +22,14 @@ class Fine
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="cart", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cart", inversedBy="fines")
+     */
+    private $cart;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateCreated", type="datetime")
@@ -240,5 +248,28 @@ class Fine
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set cart
+     *
+     * @param integer $cart
+     * @return Fine
+     */
+    public function setCart($cart)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
+     * Get cart
+     *
+     * @return integer 
+     */
+    public function getCart()
+    {
+        return $this->cart;
     }
 }

@@ -22,6 +22,14 @@ class Pickup_spot
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="carts", type="integer")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Cart", mappedBy="pickup")
+     */
+    private $carts;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
@@ -120,5 +128,28 @@ class Pickup_spot
     public function getIdCart()
     {
         return $this->idCart;
+    }
+
+    /**
+     * Set carts
+     *
+     * @param integer $carts
+     * @return Pickup_spot
+     */
+    public function setCarts($carts)
+    {
+        $this->carts = $carts;
+
+        return $this;
+    }
+
+    /**
+     * Get carts
+     *
+     * @return integer 
+     */
+    public function getCarts()
+    {
+        return $this->carts;
     }
 }

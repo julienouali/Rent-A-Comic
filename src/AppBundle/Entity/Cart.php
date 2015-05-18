@@ -38,6 +38,22 @@ class Cart
     private $user;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="pickup", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pickup_spot", inversedBy="carts")
+     */
+    private $pickup;    
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fines", type="integer")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Fine", mappedBy="cart")
+     */
+    private $fines;        
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateModified", type="datetime")
@@ -302,5 +318,51 @@ class Cart
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set pickup
+     *
+     * @param integer $pickup
+     * @return Cart
+     */
+    public function setPickup($pickup)
+    {
+        $this->pickup = $pickup;
+
+        return $this;
+    }
+
+    /**
+     * Get pickup
+     *
+     * @return integer 
+     */
+    public function getPickup()
+    {
+        return $this->pickup;
+    }
+
+    /**
+     * Set fines
+     *
+     * @param integer $fines
+     * @return Cart
+     */
+    public function setFines($fines)
+    {
+        $this->fines = $fines;
+
+        return $this;
+    }
+
+    /**
+     * Get fines
+     *
+     * @return integer 
+     */
+    public function getFines()
+    {
+        return $this->fines;
     }
 }
