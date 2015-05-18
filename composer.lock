@@ -4,11 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "43a3d53829dda58356af7339bb25ad47",
-=======
     "hash": "2e3bc46055e947174638a0424baf6eb5",
->>>>>>> 191759742e5c2c4ca2e8699ecaab5c3f4b1064ac
     "packages": [
         {
             "name": "cocur/slugify",
@@ -689,30 +685,17 @@
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
-<<<<<<< HEAD
-            "version": "v2.2.0",
-=======
             "version": "dev-master",
->>>>>>> 191759742e5c2c4ca2e8699ecaab5c3f4b1064ac
             "target-dir": "Doctrine/Bundle/FixturesBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
-<<<<<<< HEAD
-                "reference": "c811f96f0cf83b997e3a3ed037cac729bbe3e803"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/c811f96f0cf83b997e3a3ed037cac729bbe3e803",
-                "reference": "c811f96f0cf83b997e3a3ed037cac729bbe3e803",
-=======
                 "reference": "c5ff0542772102ddd4e2fbe173e9ad40ad67c22f"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/c5ff0542772102ddd4e2fbe173e9ad40ad67c22f",
                 "reference": "c5ff0542772102ddd4e2fbe173e9ad40ad67c22f",
->>>>>>> 191759742e5c2c4ca2e8699ecaab5c3f4b1064ac
                 "shasum": ""
             },
             "require": {
@@ -724,11 +707,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-                    "dev-master": "2.1.x-dev"
-=======
                     "dev-master": "2.2.x-dev"
->>>>>>> 191759742e5c2c4ca2e8699ecaab5c3f4b1064ac
                 }
             },
             "autoload": {
@@ -742,28 +721,16 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-=======
->>>>>>> 191759742e5c2c4ca2e8699ecaab5c3f4b1064ac
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
                 },
                 {
                     "name": "Doctrine Project",
                     "homepage": "http://www.doctrine-project.org"
-<<<<<<< HEAD
-=======
                 },
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
->>>>>>> 191759742e5c2c4ca2e8699ecaab5c3f4b1064ac
                 }
             ],
             "description": "Symfony DoctrineFixturesBundle",
@@ -772,11 +739,7 @@
                 "Fixture",
                 "persistence"
             ],
-<<<<<<< HEAD
-            "time": "2013-09-05 11:23:37"
-=======
             "time": "2015-01-19 02:21:37"
->>>>>>> 191759742e5c2c4ca2e8699ecaab5c3f4b1064ac
         },
         {
             "name": "doctrine/inflector",
