@@ -22,6 +22,22 @@ class Cart
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="books", type="integer")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Book", mappedBy="carts")
+     */
+    private $books;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="user", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="carts")
+     */
+    private $user;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateModified", type="datetime")
@@ -240,5 +256,51 @@ class Cart
     public function getIdPickup()
     {
         return $this->idPickup;
+    }
+
+    /**
+     * Set books
+     *
+     * @param integer $books
+     * @return Cart
+     */
+    public function setBooks($books)
+    {
+        $this->books = $books;
+
+        return $this;
+    }
+
+    /**
+     * Get books
+     *
+     * @return integer 
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * Set user
+     *
+     * @param integer $user
+     * @return Cart
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return integer 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

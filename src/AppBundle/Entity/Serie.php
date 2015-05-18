@@ -196,4 +196,50 @@ class Serie
     {
         return $this->slug;
     }
+
+    /**
+     * Set books
+     *
+     * @param integer $books
+     * @return Serie
+     */
+    public function setBooks($books)
+    {
+        $this->books = $books;
+
+        return $this;
+    }
+
+    /**
+     * Get books
+     *
+     * @return integer 
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * Set categories
+     *
+     * @param integer $categories
+     * @return Serie
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return integer 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
 }

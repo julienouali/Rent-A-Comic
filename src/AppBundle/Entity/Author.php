@@ -22,6 +22,14 @@ class Author
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="rel", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Rel_BookAuthor", inversedBy="authors")
+     */
+    private $rel;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
@@ -240,5 +248,28 @@ class Author
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set rel
+     *
+     * @param integer $rel
+     * @return Author
+     */
+    public function setRel($rel)
+    {
+        $this->rel = $rel;
+
+        return $this;
+    }
+
+    /**
+     * Get rel
+     *
+     * @return integer 
+     */
+    public function getRel()
+    {
+        return $this->rel;
     }
 }

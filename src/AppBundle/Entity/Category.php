@@ -22,6 +22,14 @@ class Category
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="series", type="integer")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Serie", inversedBy="categories")
+     */
+    private $series;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="categoryName", type="string", length=255)
@@ -60,5 +68,28 @@ class Category
     public function getCategoryName()
     {
         return $this->categoryName;
+    }
+
+    /**
+     * Set series
+     *
+     * @param integer $series
+     * @return Category
+     */
+    public function setSeries($series)
+    {
+        $this->series = $series;
+
+        return $this;
+    }
+
+    /**
+     * Get series
+     *
+     * @return integer 
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }

@@ -22,6 +22,14 @@ class User
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="carts", type="integer")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
+     */
+    private $carts;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=255)
@@ -360,5 +368,28 @@ class User
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set carts
+     *
+     * @param integer $carts
+     * @return User
+     */
+    public function setCarts($carts)
+    {
+        $this->carts = $carts;
+
+        return $this;
+    }
+
+    /**
+     * Get carts
+     *
+     * @return integer 
+     */
+    public function getCarts()
+    {
+        return $this->carts;
     }
 }

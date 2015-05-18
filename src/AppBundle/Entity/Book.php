@@ -21,6 +21,32 @@ class Book
      */
     private $id;
 
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="serie", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Serie", inversedBy="books")
+     */
+    private $serie;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rel", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Rel_BookAuthor", inversedBy="books")
+     */
+    private $rel;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="carts", type="integer")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Cart", inversedBy="books")
+     */
+    private $carts;
+
+
     /**
      * @var string
      *
@@ -450,5 +476,74 @@ class Book
     public function getDatePublished()
     {
         return $this->datePublished;
+    }
+
+    /**
+     * Set serie
+     *
+     * @param integer $serie
+     * @return Book
+     */
+    public function setSerie($serie)
+    {
+        $this->serie = $serie;
+
+        return $this;
+    }
+
+    /**
+     * Get serie
+     *
+     * @return integer 
+     */
+    public function getSerie()
+    {
+        return $this->serie;
+    }
+
+    /**
+     * Set rel
+     *
+     * @param integer $rel
+     * @return Book
+     */
+    public function setRel($rel)
+    {
+        $this->rel = $rel;
+
+        return $this;
+    }
+
+    /**
+     * Get rel
+     *
+     * @return integer 
+     */
+    public function getRel()
+    {
+        return $this->rel;
+    }
+
+    /**
+     * Set carts
+     *
+     * @param integer $carts
+     * @return Book
+     */
+    public function setCarts($carts)
+    {
+        $this->carts = $carts;
+
+        return $this;
+    }
+
+    /**
+     * Get carts
+     *
+     * @return integer 
+     */
+    public function getCarts()
+    {
+        return $this->carts;
     }
 }
