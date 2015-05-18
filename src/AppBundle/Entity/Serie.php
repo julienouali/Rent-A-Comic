@@ -22,6 +22,21 @@ class Serie
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="books", type="integer")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Book", mappedBy="serie")
+     */
+    private $books;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="categories", type="integer")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category", mappedBy="series")
+     */
+    private $categories;    
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
@@ -180,5 +195,51 @@ class Serie
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set books
+     *
+     * @param integer $books
+     * @return Serie
+     */
+    public function setBooks($books)
+    {
+        $this->books = $books;
+
+        return $this;
+    }
+
+    /**
+     * Get books
+     *
+     * @return integer 
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * Set categories
+     *
+     * @param integer $categories
+     * @return Serie
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return integer 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
