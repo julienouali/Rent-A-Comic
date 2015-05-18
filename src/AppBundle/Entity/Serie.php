@@ -22,6 +22,21 @@ class Serie
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="books", type="integer")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Book", mappedBy="serie")
+     */
+    private $books;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="categories", type="integer")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category", mappedBy="series")
+     */
+    private $categories;    
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
@@ -31,7 +46,7 @@ class Serie
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 

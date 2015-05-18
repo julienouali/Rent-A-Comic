@@ -24,42 +24,42 @@ class Author
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
     private $lastname;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date")
+     * @ORM\Column(name="birthDate", type="datetime", nullable=true)
      */
     private $birthDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="deathDate", type="date")
+     * @ORM\Column(name="deathDate", type="datetime", nullable=true)
      */
     private $deathDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nickname", type="string", length=255)
+     * @ORM\Column(name="nickname", type="string", length=255, nullable=true)
      */
     private $nickname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=255)
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
      */
     private $country;
 

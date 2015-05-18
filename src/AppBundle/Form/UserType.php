@@ -19,13 +19,11 @@ class UserType extends AbstractType
             ->add('lastName')
             ->add('nickname')
             ->add('email')
-            ->add('password')
+            ->add('password','password')
             ->add('postalCode')
             ->add('address')
-            ->add('city')
             ->add('tel')
-            ->add('subscriber')
-            ->add('slug')
+            ->add("Enregistrer" , "submit")
         ;
     }
     

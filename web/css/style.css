@@ -1,3 +1,13 @@
 .login{
     float:right;
 }
+
+#inscription{
+    margin: 5% auto auto;
+    width: 350px;
+}
+
+#inscription #appbundle_user div{
+    padding:10px;
+    text-align: center;
+}
