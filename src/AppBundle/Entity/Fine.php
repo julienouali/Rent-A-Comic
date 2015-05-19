@@ -62,13 +62,6 @@ class Fine
     private $motif;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="idCart", type="integer")
-     */
-    private $idCart;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=255)
@@ -199,29 +192,6 @@ class Fine
     public function getMotif()
     {
         return $this->motif;
-    }
-
-    /**
-     * Set idCart
-     *
-     * @param integer $idCart
-     * @return Fine
-     */
-    public function setIdCart($idCart)
-    {
-        $this->idCart = $idCart;
-
-        return $this;
-    }
-
-    /**
-     * Get idCart
-     *
-     * @return integer 
-     */
-    public function getIdCart()
-    {
-        return $this->idCart;
     }
 
     /**
