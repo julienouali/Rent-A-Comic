@@ -9,7 +9,7 @@ use AppBundle\Entity\Book;
 use AppBundle\Entity\Author;
 use AppBundle\Entity\Serie;
 use AppBundle\Entity\Category;
-use AppBundle\Entity\Rel_BookAuthor;
+use AppBundle\Entity\RelBookAuthor;
 
 class LoadData extends ContainerAware implements FixtureInterface
 {
@@ -99,7 +99,7 @@ class LoadData extends ContainerAware implements FixtureInterface
             $book->setTitle($row[2]);
             //get authors
             
-            $relBookAuthor = new Rel_BookAuthor();
+            $relBookAuthor = new RelBookAuthor();
             
             $illustrator = $this->getAuthor( $row[4] );
             if ($illustrator){
@@ -107,7 +107,7 @@ class LoadData extends ContainerAware implements FixtureInterface
                 $relBookAuthor->setAuthors($illustrator);
                 $relBookAuthor->setBooks($book);
                 $manager->persist($relBookAuthor);
-                $relBookAuthor = new Rel_BookAuthor();
+                $relBookAuthor = new RelBookAuthor();
             }
             
             $colorist = $this->getAuthor( $row[5] );
@@ -116,7 +116,7 @@ class LoadData extends ContainerAware implements FixtureInterface
                 $relBookAuthor->setAuthors($colorist);
                 $relBookAuthor->setBooks($book);
                 $manager->persist($relBookAuthor);
-                $relBookAuthor = new Rel_BookAuthor();
+                $relBookAuthor = new RelBookAuthor();
             }
             
             $scenarist = $this->getAuthor( $row[6] );

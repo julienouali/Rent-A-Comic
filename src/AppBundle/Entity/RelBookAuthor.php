@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Rel_BookAuthor
+ * RelBookAuthor
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Rel_BookAuthorRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\RelBookAuthorRepository")
  */
-class Rel_BookAuthor
+class RelBookAuthor
 {
     /**
      * @var integer
@@ -53,7 +53,7 @@ class Rel_BookAuthor
      * Set authorType
      *
      * @param string $authorType
-     * @return Rel_BookAuthor
+     * @return RelBookAuthor
      */
     public function setAuthorType($authorType)
     {
@@ -76,7 +76,7 @@ class Rel_BookAuthor
      * Set books
      *
      * @param integer $books
-     * @return Rel_BookAuthor
+     * @return RelBookAuthor
      */
     public function setBooks($books)
     {
@@ -99,7 +99,7 @@ class Rel_BookAuthor
      * Set authors
      *
      * @param integer $authors
-     * @return Rel_BookAuthor
+     * @return RelBookAuthor
      */
     public function setAuthors($authors)
     {
