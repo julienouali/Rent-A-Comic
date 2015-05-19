@@ -22,9 +22,6 @@ class User
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="carts", type="integer")
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
      */
     private $carts;

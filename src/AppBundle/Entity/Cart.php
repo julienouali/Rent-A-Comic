@@ -22,33 +22,21 @@ class Cart
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="books", type="integer")
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Book", mappedBy="carts")
      */
     private $books;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="user", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="carts")
      */
     private $user;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="pickup", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pickup_spot", inversedBy="carts")
      */
     private $pickup;    
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="fines", type="integer")
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Fine", mappedBy="cart")
      */
     private $fines;        
@@ -94,14 +82,6 @@ class Cart
      * @ORM\Column(name="dateToBeReturn", type="datetime")
      */
     private $dateToBeReturn;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idPickup", type="integer")
-     */
-    private $idPickup;
-
 
     /**
      * Get id
@@ -249,29 +229,6 @@ class Cart
     public function getDateToBeReturn()
     {
         return $this->dateToBeReturn;
-    }
-
-    /**
-     * Set idPickup
-     *
-     * @param integer $idPickup
-     * @return Cart
-     */
-    public function setIdPickup($idPickup)
-    {
-        $this->idPickup = $idPickup;
-
-        return $this;
-    }
-
-    /**
-     * Get idPickup
-     *
-     * @return integer 
-     */
-    public function getIdPickup()
-    {
-        return $this->idPickup;
     }
 
     /**

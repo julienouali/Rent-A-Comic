@@ -22,9 +22,6 @@ class Fine
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="cart", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cart", inversedBy="fines")
      */
     private $cart;
@@ -63,13 +60,6 @@ class Fine
      * @ORM\Column(name="motif", type="string", length=255)
      */
     private $motif;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idCart", type="integer")
-     */
-    private $idCart;
 
     /**
      * @var string
@@ -202,29 +192,6 @@ class Fine
     public function getMotif()
     {
         return $this->motif;
-    }
-
-    /**
-     * Set idCart
-     *
-     * @param integer $idCart
-     * @return Fine
-     */
-    public function setIdCart($idCart)
-    {
-        $this->idCart = $idCart;
-
-        return $this;
-    }
-
-    /**
-     * Get idCart
-     *
-     * @return integer 
-     */
-    public function getIdCart()
-    {
-        return $this->idCart;
     }
 
     /**
