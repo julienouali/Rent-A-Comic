@@ -28,7 +28,7 @@ class Book
     private $serie;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Rel_BookAuthor", mappedBy="books")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\RelBookAuthor", mappedBy="books")
      */
     private $rel;
 
@@ -583,10 +583,10 @@ class Book
     /**
      * Add rel
      *
-     * @param \AppBundle\Entity\Rel_BookAuthor $rel
+     * @param \AppBundle\Entity\RelBookAuthor $rel
      * @return Book
      */
-    public function addRel(\AppBundle\Entity\Rel_BookAuthor $rel)
+    public function addRel(\AppBundle\Entity\RelBookAuthor $rel)
     {
         $this->rel[] = $rel;
 
@@ -596,9 +596,9 @@ class Book
     /**
      * Remove rel
      *
-     * @param \AppBundle\Entity\Rel_BookAuthor $rel
+     * @param \AppBundle\Entity\RelBookAuthor $rel
      */
-    public function removeRel(\AppBundle\Entity\Rel_BookAuthor $rel)
+    public function removeRel(\AppBundle\Entity\RelBookAuthor $rel)
     {
         $this->rel->removeElement($rel);
     }
