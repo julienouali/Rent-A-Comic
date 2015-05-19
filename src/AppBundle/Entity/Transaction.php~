@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Fine
+ * Transaction
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\FineRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\TransactionRepository")
  */
-class Fine
+class Transaction
 {
     /**
      * @var integer
@@ -22,11 +22,6 @@ class Fine
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cart", inversedBy="fines")
-     */
-    private $cart;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateCreated", type="datetime")
@@ -36,16 +31,16 @@ class Fine
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateModified", type="datetime")
+     * @ORM\Column(name="dateValidationBq", type="datetime")
      */
-    private $dateModified;
+    private $dateValidationBq;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="dateLimit", type="datetime")
+     * @ORM\Column(name="status", type="string", length=255)
      */
-    private $dateLimit;
+    private $status;
 
     /**
      * @var float
@@ -57,9 +52,9 @@ class Fine
     /**
      * @var string
      *
-     * @ORM\Column(name="motif", type="string", length=255)
+     * @ORM\Column(name="rib", type="string", length=255)
      */
-    private $motif;
+    private $rib;
 
     /**
      * @var integer
@@ -67,13 +62,6 @@ class Fine
      * @ORM\Column(name="idCart", type="integer")
      */
     private $idCart;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="status", type="string", length=255)
-     */
-    private $status;
 
 
     /**
@@ -90,7 +78,7 @@ class Fine
      * Set dateCreated
      *
      * @param \DateTime $dateCreated
-     * @return Fine
+     * @return Transaction
      */
     public function setDateCreated($dateCreated)
     {
@@ -110,125 +98,33 @@ class Fine
     }
 
     /**
-     * Set dateModified
+     * Set dateValidationBq
      *
-     * @param \DateTime $dateModified
-     * @return Fine
+     * @param \DateTime $dateValidationBq
+     * @return Transaction
      */
-    public function setDateModified($dateModified)
+    public function setDateValidationBq($dateValidationBq)
     {
-        $this->dateModified = $dateModified;
+        $this->dateValidationBq = $dateValidationBq;
 
         return $this;
     }
 
     /**
-     * Get dateModified
+     * Get dateValidationBq
      *
      * @return \DateTime 
      */
-    public function getDateModified()
+    public function getDateValidationBq()
     {
-        return $this->dateModified;
-    }
-
-    /**
-     * Set dateLimit
-     *
-     * @param \DateTime $dateLimit
-     * @return Fine
-     */
-    public function setDateLimit($dateLimit)
-    {
-        $this->dateLimit = $dateLimit;
-
-        return $this;
-    }
-
-    /**
-     * Get dateLimit
-     *
-     * @return \DateTime 
-     */
-    public function getDateLimit()
-    {
-        return $this->dateLimit;
-    }
-
-    /**
-     * Set amont
-     *
-     * @param float $amont
-     * @return Fine
-     */
-    public function setAmont($amont)
-    {
-        $this->amont = $amont;
-
-        return $this;
-    }
-
-    /**
-     * Get amont
-     *
-     * @return float 
-     */
-    public function getAmont()
-    {
-        return $this->amont;
-    }
-
-    /**
-     * Set motif
-     *
-     * @param string $motif
-     * @return Fine
-     */
-    public function setMotif($motif)
-    {
-        $this->motif = $motif;
-
-        return $this;
-    }
-
-    /**
-     * Get motif
-     *
-     * @return string 
-     */
-    public function getMotif()
-    {
-        return $this->motif;
-    }
-
-    /**
-     * Set idCart
-     *
-     * @param integer $idCart
-     * @return Fine
-     */
-    public function setIdCart($idCart)
-    {
-        $this->idCart = $idCart;
-
-        return $this;
-    }
-
-    /**
-     * Get idCart
-     *
-     * @return integer 
-     */
-    public function getIdCart()
-    {
-        return $this->idCart;
+        return $this->dateValidationBq;
     }
 
     /**
      * Set status
      *
      * @param string $status
-     * @return Fine
+     * @return Transaction
      */
     public function setStatus($status)
     {
@@ -248,25 +144,71 @@ class Fine
     }
 
     /**
-     * Set cart
+     * Set amont
      *
-     * @param integer $cart
-     * @return Fine
+     * @param float $amont
+     * @return Transaction
      */
-    public function setCart($cart)
+    public function setAmont($amont)
     {
-        $this->cart = $cart;
+        $this->amont = $amont;
 
         return $this;
     }
 
     /**
-     * Get cart
+     * Get amont
+     *
+     * @return float 
+     */
+    public function getAmont()
+    {
+        return $this->amont;
+    }
+
+    /**
+     * Set rib
+     *
+     * @param string $rib
+     * @return Transaction
+     */
+    public function setRib($rib)
+    {
+        $this->rib = $rib;
+
+        return $this;
+    }
+
+    /**
+     * Get rib
+     *
+     * @return string 
+     */
+    public function getRib()
+    {
+        return $this->rib;
+    }
+
+    /**
+     * Set idCart
+     *
+     * @param integer $idCart
+     * @return Transaction
+     */
+    public function setIdCart($idCart)
+    {
+        $this->idCart = $idCart;
+
+        return $this;
+    }
+
+    /**
+     * Get idCart
      *
      * @return integer 
      */
-    public function getCart()
+    public function getIdCart()
     {
-        return $this->cart;
+        return $this->idCart;
     }
 }
