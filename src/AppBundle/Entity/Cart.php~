@@ -32,7 +32,7 @@ class Cart
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pickup_spot", inversedBy="carts")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PickupSpot", inversedBy="carts")
      */
     private $pickup;    
 
@@ -82,14 +82,6 @@ class Cart
      * @ORM\Column(name="dateToBeReturn", type="datetime")
      */
     private $dateToBeReturn;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idPickup", type="integer")
-     */
-    private $idPickup;
-
 
     /**
      * Get id
@@ -237,29 +229,6 @@ class Cart
     public function getDateToBeReturn()
     {
         return $this->dateToBeReturn;
-    }
-
-    /**
-     * Set idPickup
-     *
-     * @param integer $idPickup
-     * @return Cart
-     */
-    public function setIdPickup($idPickup)
-    {
-        $this->idPickup = $idPickup;
-
-        return $this;
-    }
-
-    /**
-     * Get idPickup
-     *
-     * @return integer 
-     */
-    public function getIdPickup()
-    {
-        return $this->idPickup;
     }
 
     /**
