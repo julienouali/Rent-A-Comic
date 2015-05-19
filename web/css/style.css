@@ -1,13 +1,68 @@
+body{
+    background-color: #eee;
+}
+
 .login{
-    float:right;
+    float: right;
 }
 
 #inscription{
-    margin: 5% auto auto;
-    width: 350px;
+    position: absolute;
+    padding: 10px;   
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7),
+            -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
 }
 
-#inscription #appbundle_user div{
-    padding:10px;
-    text-align: center;
+#inscription input{
+    width: 300px;
+}
+
+.resultats{
+    display: flex;
+    border: solid;
+    padding: 5px;
+}
+
+.filtres{
+    border: solid;
+    padding: 5px;
+}
+
+#abonne{
+    margin-left: 400px;
+    margin-top: 20px;
+    padding: 30px
+}
+
+#inscription #appbundle_user_Enregistrer{
+    padding: 5px 11px;
+    margin-top: 5px;
+    background-color: gainsboro;
+}
+
+.form-control{    
+    width: 200px
+}
+
+#dropdownMenu1{
+    border: solid;
+    margin: 10px 20px;
+}
+
+.dropdown-menu{
+    border: solid;
+}
+
+.span3{
+    border: solid;
+    padding: 5px;
+}
+
+.span6{
+    border: solid;
+    padding: 5px;
+}
+
+h2{
+    color: gray
 }
