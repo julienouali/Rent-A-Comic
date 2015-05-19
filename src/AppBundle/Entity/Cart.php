@@ -32,7 +32,7 @@ class Cart
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pickup_spot", inversedBy="carts")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PickupSpot", inversedBy="carts")
      */
     private $pickup;    
 
@@ -321,5 +321,59 @@ class Cart
     public function getFines()
     {
         return $this->fines;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->books = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->fines = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add books
+     *
+     * @param \AppBundle\Entity\Book $books
+     * @return Cart
+     */
+    public function addBook(\AppBundle\Entity\Book $books)
+    {
+        $this->books[] = $books;
+
+        return $this;
+    }
+
+    /**
+     * Remove books
+     *
+     * @param \AppBundle\Entity\Book $books
+     */
+    public function removeBook(\AppBundle\Entity\Book $books)
+    {
+        $this->books->removeElement($books);
+    }
+
+    /**
+     * Add fines
+     *
+     * @param \AppBundle\Entity\Fine $fines
+     * @return Cart
+     */
+    public function addFine(\AppBundle\Entity\Fine $fines)
+    {
+        $this->fines[] = $fines;
+
+        return $this;
+    }
+
+    /**
+     * Remove fines
+     *
+     * @param \AppBundle\Entity\Fine $fines
+     */
+    public function removeFine(\AppBundle\Entity\Fine $fines)
+    {
+        $this->fines->removeElement($fines);
     }
 }

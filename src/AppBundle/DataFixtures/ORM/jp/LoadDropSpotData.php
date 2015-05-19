@@ -7,7 +7,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Pickup_spot;
+use AppBundle\Entity\PickupSpot;
 use \DateTime;
 
 class LoadDropSpotDataData extends ContainerAware implements FixtureInterface
@@ -21,7 +21,7 @@ class LoadDropSpotDataData extends ContainerAware implements FixtureInterface
 		//loop over the array
 		foreach($dropspots as $dropspot){
 			//creates a Pickup_spot instance
-                        $pickup_spot = new Pickup_spot();
+                        $pickup_spot = new PickupSpot();
 			//hydrates it
                         $pickup_spot->setStoreName($dropspot[0]);
                         $pickup_spot->setAddress($dropspot[1]);
