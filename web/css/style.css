@@ -1,9 +1,14 @@
-body{
-    background-color: #eee;
+header{
+    display: inline-flex
 }
 
 .login{
     float: right;
+    margin-top: 30px;   margin-left: 20px;
+}
+
+#menu{
+    margin-top: 20px;   margin-left: 20px;
 }
 
 #inscription{
@@ -11,6 +16,7 @@ body{
     padding: 10px;   
     box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7),
             -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
+    background-color: #eee;
 }
 
 #inscription input{
@@ -21,11 +27,13 @@ body{
     display: flex;
     border: solid;
     padding: 5px;
+    background-color: #eee;
 }
 
 .filtres{
     border: solid;
     padding: 5px;
+    background-color: #eee;
 }
 
 #abonne{
