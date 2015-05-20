@@ -18,8 +18,16 @@
                     <a class="btn btn-default" href="{{ path('home') }}" title="BDloc | Accueil">Accueil</a>
                     <a class="btn btn-default" href="{{ path('catalogue') }}" title="Catalogue">Catalogue</a>
                     <a class="btn btn-default" href="{{ path('panier') }}" title="Panier">Mon Panier</a>
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a class="btn btn-default" href="{{ path('logout') }}" title="Panier">Se déconnecter</a>    
+                    {% else %}
+                    <a class="btn btn-default" href="{{ path('login_route') }}" title="Panier">Se connecter</a>    
+                    {% endif %}
                 </ul>
             </nav>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <h4>Bonjour {{ app.user.lastname}}  {{ app.user.firstname}}</h4>            {% endif %}
+            {#
                 <div class="login">
                     <form action="" method="POST">
                         <label for="username">Username:</label>
@@ -28,6 +36,7 @@
                         <input type="password" id="password" name="_password" a />
                     </form>
                 </div>
+            #}
                 
             {% block header %}{% endblock %}
         </header>

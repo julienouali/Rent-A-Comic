@@ -14,12 +14,12 @@ security:
         main:
             entity:
                 class: AppBundle\Entity\User
-                property: username
+                property: nickname
 
     encoders:
         AppBundle\Entity\User:
-            algorithm: sha512
-            iterations: 5000
+            algorithm: bcrypt
+            cost: 12
 
     access_control:
 

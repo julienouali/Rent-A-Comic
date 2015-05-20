@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -20,6 +21,13 @@ class User
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles;    
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
@@ -103,7 +111,12 @@ class User
      */
     private $slug;
 
-
+    public function eraseCredentials(){}
+    
+    public function getSalt() {
+        return null;
+    }
+    
     /**
      * Get id
      *
@@ -136,6 +149,16 @@ class User
     {
         return $this->firstName;
     }
+    
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->nickname;
+    }    
 
     /**
      * Set lastName
@@ -418,5 +441,28 @@ class User
     public function removeCart(\AppBundle\Entity\Cart $carts)
     {
         $this->carts->removeElement($carts);
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array 
+     */
+    public function getRoles()
+    {
+        return $this->roles;
     }
 }

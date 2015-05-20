@@ -1,6 +1,6 @@
 <?php
 
-namespace Bdloc\AppBundle\DataFixtures\ORM\jp;
+namespace Bdloc\AppBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 //use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -31,8 +31,8 @@ class LoadDropSpotDataData extends ContainerAware implements FixtureInterface
 			//(gets the coordinates, optionnal)
                         //https://developers.google.com/maps/documentation/geocoding/
                         //api key AIzaSyBcWvj67dQws2XTGNl4B57YxEyZFwkDb6s
-                        
-                        
+                        $go = 1;
+                        if ($go=0) {
                         $tmpTab = explode (" ",$pickup_spot->getStoreName());
                         $nom = implode("+",$tmpTab);
                         $tmpTab = explode (" ",$pickup_spot->getAddress());
@@ -54,7 +54,10 @@ class LoadDropSpotDataData extends ContainerAware implements FixtureInterface
                         $pickup_spot->setLatitude($tab['results'][0]['geometry']['location']['lat']);
                         $pickup_spot->setLongitude($tab['results'][0]['geometry']['location']['lng']);
 
-			
+                        } else {
+                        $pickup_spot->setLatitude(48.8685692);
+                        $pickup_spot->setLongitude(2.3356084);
+                        }
 			//persists it
                         $em = $this->container->get("doctrine")->getManager();
                         $em->persist($pickup_spot);

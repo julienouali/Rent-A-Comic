@@ -56,13 +56,6 @@ class Cart
     private $dateCreated;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="idUser", type="integer")
-     */
-    private $idUser;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=255)
@@ -82,6 +75,13 @@ class Cart
      * @ORM\Column(name="dateToBeReturn", type="datetime")
      */
     private $dateToBeReturn;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateReallyReturned", type="datetime", nullable=true)
+     */
+    private $dateReallyReturned;    
 
     /**
      * Get id
@@ -375,5 +375,28 @@ class Cart
     public function removeFine(\AppBundle\Entity\Fine $fines)
     {
         $this->fines->removeElement($fines);
+    }
+
+    /**
+     * Set dateReallyReturned
+     *
+     * @param \DateTime $dateReallyReturned
+     * @return Cart
+     */
+    public function setDateReallyReturned($dateReallyReturned)
+    {
+        $this->dateReallyReturned = $dateReallyReturned;
+
+        return $this;
+    }
+
+    /**
+     * Get dateReallyReturned
+     *
+     * @return \DateTime 
+     */
+    public function getDateReallyReturned()
+    {
+        return $this->dateReallyReturned;
     }
 }

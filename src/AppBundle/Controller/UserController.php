@@ -8,6 +8,9 @@ use \Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Util\SecureRandom;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 class UserController extends Controller
 {
@@ -26,7 +29,7 @@ class UserController extends Controller
         {
             $user->setSubscriber(TRUE);
             if($user->getPostalCode()[0].$user->getPostalCode()[1] == '75'){
-                $user->setCity('PARIS');
+                $user->setCity('Paris');
             }else{
                $FormError =  new \Symfony\Component\Form\FormError('IL FAUT ETRE PARISIENS POUR ACCEDER A CE SERVICE');
                $FormError->setOrigin($createUserForm);
@@ -34,17 +37,38 @@ class UserController extends Controller
                 $param = array(
                         "createUserForm" =>$createUserForm->createView(),
                 );
-        
                 return $this->render('user/inscription.html.twig',$param);
             }
             
-            $slug = $this->get('cocur_slugify')->slugify($user->getFirstName().$user->getLastName());
-            $user->setSlug($slug);
+            $slug = $this->get('cocur_slugify')->slugify($user->getFirstName().'-'.$user->getLastName());
+            $user->setSlug($slug.uniqid());
+            //$cryptedpass = password_hash($user->getPassword(), PASSWORD_BCRYPT);
+            //$user->setPassword($cryptedpass);
+            
+            
+            $user->setRoles(array("ROLE_ADMIN"));
+            
+            $encoder= $this->get("security.password_encoder");
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encodedPassword);            
             
             $em = $this->get('doctrine')->getManager();
                 $em->persist($user);
                 $em->flush();
-        }
+        
+                //log user
+                $token = new UsernamePasswordToken($user, null, "main", $user->getRoles());
+                $this->get("security.context")->setToken($token); //now the user is logged in
+
+                //now dispatch the login event
+                $request = $this->get("request");
+                $event = new InteractiveLoginEvent($request, $token);
+                $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
+                
+                //redirige sur accueil
+                
+            return $this->redirectToRoute("catalogue");                
+            }
         
         
         $param = array(
@@ -52,12 +76,14 @@ class UserController extends Controller
             "FormError" => $createUserForm->getErrors()
         );
         
+
+        
         return $this->render('user/inscription.html.twig',$param);
     }
     
      /**
      * @Route("/login",
-     * name = "login")
+     * name = "login_route")
      */
     public function loginFormAction(Request $request){
         $authenticationUtils = $this->get('security.authentication_utils');
