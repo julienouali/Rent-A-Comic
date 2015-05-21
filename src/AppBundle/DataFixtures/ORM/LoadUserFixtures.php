@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 
 use AppBundle\Entity\User;
 use AppBundle\Entity\Cart;
+
 //use AppBundle\Entity\Story;
 //use AppBundle\Entity\Comment;
 use Symfony\Component\Security\Core\Util\SecureRandom;
@@ -98,21 +99,43 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $slug .= uniqid();
             $user->setSlug($slug);
             
-            $manager->persist($user);          
+            $manager->persist($user);                    
             
             $user = new User();
             //$user->setRoles(array("ROLE_ADMIN"));
-            $user->setFirstName('Jospin');
-            $user->setLastName('Lionel');
-            $user->setPassword('123');
+            $user->setFirstName('Khouaji');
+            $user->setLastName('Aymane');
+            $user->setPassword('12345');
             $user->setEmail($faker->email);
-            $user->setNickname('L.Jospin');
-            $user->setAddress('3 Quai Voltaire');
+            $user->setNickname('Odint');
+            $user->setAddress('3 rue Foch');
             $user->setCity('Paris');
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setPostalCode('75007');            
+            $user->setPostalCode('75016');            
+            $encoder= $this->container->get("security.password_encoder");
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encodedPassword);                        
+            $slug = $this->container->get("cocur_slugify")->slugify($user->getFirstName().'-'.$user->getLastName() );
+            $slug .= uniqid();
+            $user->setSlug($slug);
+            
+            $manager->persist($user);             
+            
+            $user = new User();
+            //$user->setRoles(array("ROLE_ADMIN"));
+            $user->setFirstName('Ouali');
+            $user->setLastName('Julien');
+            $user->setPassword('123');
+            $user->setEmail($faker->email);
+            $user->setNickname('test');
+            $user->setAddress('33 rue Cambon');
+            $user->setCity('Paris');
+            $user->setTel($faker->phoneNumber);
+            $user->setRoles(array("ROLE_ADMIN"));
+            $user->setSubscriber(1);
+            $user->setPostalCode('75001');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($encodedPassword);                        
@@ -121,6 +144,28 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setSlug($slug);
             
             $manager->persist($user);
+            
+            $user = new User();
+            //$user->setRoles(array("ROLE_ADMIN"));
+            $user->setFirstName('Jospin');
+            $user->setLastName('Lionel');
+            $user->setPassword('123');
+            $user->setEmail($faker->email);
+            $user->setNickname('L.Jospin');
+            $user->setAddress('3 rue foch');
+            $user->setCity('Paris');
+            $user->setTel($faker->phoneNumber);
+            $user->setRoles(array("ROLE_ADMIN"));
+            $user->setSubscriber(1);
+            $user->setPostalCode('75016');            
+            $encoder= $this->container->get("security.password_encoder");
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encodedPassword);                        
+            $slug = $this->container->get("cocur_slugify")->slugify($user->getFirstName().'-'.$user->getLastName() );
+            $slug .= uniqid();
+            $user->setSlug($slug);
+            
+            $manager->persist($user);                 
             
             $cart = new cart();
             
@@ -134,17 +179,17 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             
             $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
             $books = $bookRepo->findAll();
-            
-            //foreach ($books as $book) {
-            
-            //echo $book->getTitle();
-            //}
-            //dump(count($books));
-            //dump($books);
-            //shuffle($books);
+            shuffle($books);
             $tab = array ();
             array_push($tab, $books[1]);
             $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
             
             
             $manager->persist($cart);
