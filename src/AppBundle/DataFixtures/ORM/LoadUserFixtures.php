@@ -175,7 +175,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
             $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
             $cart->setTotalAmont(25);
-            $cart->setStatus('Returned');
+            $cart->setStatus('Retourné');
             
             $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
             $books = $bookRepo->findAll();
@@ -195,9 +195,134 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $manager->persist($cart);
             
             
-                    
-        
+            $user = new User();
+            //$user->setRoles(array("ROLE_ADMIN"));
+            $user->setFirstName('Barre');
+            $user->setLastName('Raymond');
+            $user->setPassword('123');
+            $user->setEmail($faker->email);
+            $user->setNickname('R.Barre');
+            $user->setAddress('3 rue foch');
+            $user->setCity('Paris');
+            $user->setTel($faker->phoneNumber);
+            $user->setRoles(array("ROLE_ADMIN"));
+            $user->setSubscriber(1);
+            $user->setPostalCode('75016');            
+            $encoder= $this->container->get("security.password_encoder");
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encodedPassword);                        
+            $slug = $this->container->get("cocur_slugify")->slugify($user->getFirstName().'-'.$user->getLastName() );
+            $slug .= uniqid();
+            $user->setSlug($slug);
             
+            $manager->persist($user);                 
+            
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            array_push($tab, $books[2]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            
+            
+            $manager->persist($cart);                    
+        
+            $user = new User();
+            $user->setFirstName('Laguiller');
+            $user->setLastName('Arlette');
+            $user->setPassword('123');
+            $user->setEmail($faker->email);
+            $user->setNickname('A.Laguil');
+            $user->setAddress('3 rue foch');
+            $user->setCity('Paris');
+            $user->setTel($faker->phoneNumber);
+            $user->setRoles(array("ROLE_ADMIN"));
+            $user->setSubscriber(1);
+            $user->setPostalCode('75016');            
+            $encoder= $this->container->get("security.password_encoder");
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encodedPassword);                        
+            $slug = $this->container->get("cocur_slugify")->slugify($user->getFirstName().'-'.$user->getLastName() );
+            $slug .= uniqid();
+            $user->setSlug($slug);
+            
+            $manager->persist($user);                 
+            
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            array_push($tab, $books[2]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            
+            
+            $manager->persist($cart);               
+            
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            array_push($tab, $books[2]);
+            array_push($tab, $books[3]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            
+            
+            $manager->persist($cart);              
+                       
 
         $manager->flush();
         /*echo $faker->name;*/
