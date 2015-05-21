@@ -23,7 +23,8 @@ class UserType extends AbstractType
             ->add('postalCode')
             ->add('address')
             ->add('tel')
-            ->add("Enregistrer" , "submit")
+            ->add('captcha', 'captcha')
+            ->add('Enregistrer' , 'submit')
         ;
     }
     
