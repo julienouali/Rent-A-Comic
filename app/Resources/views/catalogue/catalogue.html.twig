@@ -78,38 +78,37 @@
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Afficher 30 résultats</a></li>
                     </ul>
                 </div>
-                {#
-                    {{ paginationResults.nowShowingMin }} à {{ paginationResults.nowShowingMax }} sur {{ paginationResults.total }}
-                    <ul class="pagination">
+                {{ paginationResults.nowShowingMin }} à {{ paginationResults.nowShowingMax }} sur {{ paginationResults.total }}
+                <ul class="pagination">
 
-                        {% if paginationResults.prevPage %}
+                    {% if paginationResults.prevPage %}
 
-                        <li><a href="{{ path('home', {page: paginationResults.prevPage}) }}">Précédent</a></li>
+                    <li><a href="{{ path('catalogue', {page: paginationResults.prevPage}) }}">Précédent</a></li>
 
-                        {% endif %}
+                    {% endif %}
 
-                        {% for i in paginationResults.numLinkMin..paginationResults.numLinkMax %}
-                        <li><a href="{{ path('home', {'page' : i}) }}">{{i}}</a></li>
-                        {% endfor %}
+                    {% for i in paginationResults.numLinkMin..paginationResults.numLinkMax %}
+                    <li><a href="{{ path('catalogue', {'page' : i}) }}">{{i}}</a></li>
+                    {% endfor %}
 
-                        {% if paginationResults.nextPage %}
+                    {% if paginationResults.nextPage %}
 
-                        <li><a href="{{ path('home', {page: paginationResults.nextPage}) }}">Suivant</a></li>
+                    <li><a href="{{ path('catalogue', {page: paginationResults.nextPage}) }}">Suivant</a></li>
 
-                        {% endif %}
+                    {% endif %}
 
-                    </ul>
-                #}
+                </ul>
             </div>
             <div>
                     
-                {%for bd in lesBds%}
+                {%for bd in paginationResults.data %}
                     <div class="col-md-5 resultatsBd ">
                         <img src="{{ asset('Couvertures/'~ bd.cover) }}" class="img-resized" alt="{{bd.title}}">
                         <p>{{bd.title}}</p><br>
                         {%for author in bd.rel%}
                             <p>{{author.authors.firstname ~" "~ author.authors.lastname}}</p><br>
                         {%endfor%}
+                        <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-default" >Ajouter Au Panier</a>
                         
                     </div>
                 {%endfor%}
