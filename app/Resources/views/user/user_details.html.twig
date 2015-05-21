@@ -21,11 +21,11 @@ Profil | {{ parent() }}
             >Abonné
             <table class="table">
                 <tr>
-                <th>Id</th><th>Date</th><th>Etat</th><th>Bd</th>
+                <th>Id</th><th>Date Commande</th><th>Etat</th><th>Date de retour</th><th>Date retour réel</th><th>Amendes</th><th>Bd</th>
                 </tr>
                 {% for cart in user.carts %}
                 <tr>
-                <td>{{ cart.id }}</td><td>{{ cart.dateCreated|date("m/d/Y") }}</td><td>{{ cart.status }}</td>
+                <td>{{ cart.id }}</td><td>{{ cart.dateCreated|date("m/d/Y") }}</td><td>{{ cart.status }}</td><td>{{ cart.dateToBeReturn|date("m/d/Y") }}</td><td>{{ cart.dateReallyReturned|date("m/d/Y") }}</td><td>no</td>
                     {% set authorList = [] %}
                     <td>
                     {% for book in cart.books %}                        
