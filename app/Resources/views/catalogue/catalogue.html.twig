@@ -108,6 +108,7 @@
                         {%for author in bd.rel%}
                             <p>{{author.authors.firstname ~" "~ author.authors.lastname}}</p><br>
                         {%endfor%}
+                        <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-default" >Ajouter Au Panier</a>
                         
                     </div>
                 {%endfor%}
