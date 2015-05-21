@@ -11,6 +11,11 @@ header{
     margin-top: 20px;   margin-left: 20px;
 }
 
+#recherche{
+    width: 110px;
+    margin-left: 15px;
+}
+
 #inscription{
     position: absolute;
     padding: 10px;   
@@ -21,6 +26,10 @@ header{
 
 #inscription input{
     width: 300px;
+}
+
+.checkbox{
+    margin-left: 15px;
 }
 
 .resultats{
@@ -57,6 +66,10 @@ header{
     margin: 10px 20px;
 }
 
+#dropdownMenu2{
+    border: solid;
+    margin: 10px 20px;
+}
 .dropdown-menu{
     border: solid;
 }
