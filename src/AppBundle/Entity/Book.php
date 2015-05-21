@@ -33,7 +33,7 @@ class Book
     private $rel;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Cart", inversedBy="books")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Cart", mappedBy="books")
      */
     private $carts;
 

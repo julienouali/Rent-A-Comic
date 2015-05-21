@@ -22,7 +22,7 @@ class Cart
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Book", mappedBy="carts")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Book", inversedBy="carts")
      */
     private $books;
 
