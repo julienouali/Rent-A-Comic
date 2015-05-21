@@ -11,24 +11,10 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class BookRepository extends EntityRepository
-{
-
-    
-    public function findAllBook(){
+{    
+    public function findPaginated($page){  
         
-        $this->em = $this->getEntityManager();
-        
-        //DQL
-//            $dql = "SELECT s, a "
-//                    . "FROM AppBundle\Entity\Story s "
-//                    . "LEFT JOIN s.user a"
-//                    . "WHERE s.isPublished = 1";
-//            $query= $this->em->createQuery($dql);
-//            $query->setMaxResults(10);
-//            $query->setFirstResult(1);
-//            return $query->getResult();
-        
-        //DOCTRINE QUERY BUILDER
+        $this->em = $this->getEntityManager();  
         $qb = $this->createQueryBuilder('b');
         
         $qb->select('b')
@@ -36,12 +22,34 @@ class BookRepository extends EntityRepository
                 ->addSelect('a')
                 ->leftJoin('b.rel', 'r')
                 ->leftJoin('r.authors', 'a');
-                
+                        
+        $query = $qb->getQuery();
         
-            $query = $qb->getQuery();
+        $numPerPage = 10;
+        $query->setMaxResults($numPerPage);
+        $query->setFirstResult( ($page-1) * $numPerPage );
+        $result = $query->getResult();
         
-            return $query->getResult();
+        $paginationResults = array();
         
+        //les actualités
+        $paginationResults["data"] = $result;
+        //affichage des infos sur les résultats
+        $paginationResults['nowShowingMin'] = ($page-1) * $numPerPage + 1;
+        $paginationResults['nowShowingMax'] = $paginationResults['nowShowingMin'] + count($result) - 1;
+        //nombre total possible
+        $paginationResults["total"] = $qb->select("COUNT(b)")->getQuery()->getSingleScalarResult();
+        //liens numériques
+        $numPagesDiff = 2;
+        $lastPage = ceil($paginationResults["total"] / $numPerPage);
+        $paginationResults['numLinkMin'] = ($page - $numPagesDiff < 1) ? 1 : $page - $numPagesDiff;
+        $paginationResults['numLinkMax'] = ($page + $numPagesDiff >= $lastPage) ? $lastPage : $page + $numPagesDiff;
+        //page précédente ?
+        $paginationResults["prevPage"] = ($page <= 1) ? false : $page-1;
+        $paginationResults["nextPage"] = ($page >= $lastPage) ? false : $page+1;
+
+        //dump($paginationResults);
+        return $paginationResults;
     }
     
 }
