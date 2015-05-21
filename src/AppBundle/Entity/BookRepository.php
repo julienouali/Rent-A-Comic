@@ -12,4 +12,36 @@ use Doctrine\ORM\EntityRepository;
  */
 class BookRepository extends EntityRepository
 {
+
+    
+    public function findAllBook(){
+        
+        $this->em = $this->getEntityManager();
+        
+        //DQL
+//            $dql = "SELECT s, a "
+//                    . "FROM AppBundle\Entity\Story s "
+//                    . "LEFT JOIN s.user a"
+//                    . "WHERE s.isPublished = 1";
+//            $query= $this->em->createQuery($dql);
+//            $query->setMaxResults(10);
+//            $query->setFirstResult(1);
+//            return $query->getResult();
+        
+        //DOCTRINE QUERY BUILDER
+        $qb = $this->createQueryBuilder('b');
+        
+        $qb->select('b')
+                ->addSelect('r')
+                ->addSelect('a')
+                ->leftJoin('b.rel', 'r')
+                ->leftJoin('r.authors', 'a');
+                
+        
+            $query = $qb->getQuery();
+        
+            return $query->getResult();
+        
+    }
+    
 }

@@ -99,6 +99,20 @@
                     </ul>
                 #}
             </div>
+            <div>
+                    
+                {%for bd in lesBds%}
+                    <div class="col-md-5 resultatsBd ">
+                        <img src="{{ asset('Couvertures/'~ bd.cover) }}" class="img-resized" alt="{{bd.title}}">
+                        <p>{{bd.title}}</p><br>
+                        {%for author in bd.rel%}
+                            <p>{{author.authors.firstname ~" "~ author.authors.lastname}}</p><br>
+                        {%endfor%}
+                        
+                    </div>
+                {%endfor%}
+                    
+            </div>
         </div>
         <div class="col-md-1"></div>
     </div>    

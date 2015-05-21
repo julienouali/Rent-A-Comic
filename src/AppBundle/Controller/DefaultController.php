@@ -4,6 +4,9 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use \Doctrine\ORM\EntityManager;
+
+use AppBundle\Entity\BookRepository;
 
 class DefaultController extends Controller
 {
@@ -20,7 +23,14 @@ class DefaultController extends Controller
      */
     public function catalogueAction()
     {
-        return $this->render('catalogue/catalogue.html.twig');
+        $catRepo = $this->getDoctrine()->getRepository('AppBundle:Book');
+        $relBookAuthorRepo = $this->getDoctrine()->getRepository('AppBundle:RelBookAuthor');
+        $authorRepo = $this->getDoctrine()->getRepository('AppBundle:Author');
+
+        $param = array("lesBds" =>$catRepo->findAllBook(),
+                        );
+        
+        return $this->render('catalogue/catalogue.html.twig',$param);
     }
     
     /**

@@ -79,3 +79,15 @@ h4{
     margin-left: 15px;
     margin-top: 26px;
  }
+
+ .img-resized{
+     width:200px;
+     height:300px;
+ }
+ 
+ .resultatsBd{
+    border: solid;
+    margin-top: 25px;
+    padding: 5px;
+    background-color: #eee;
+}
