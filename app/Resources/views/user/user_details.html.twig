@@ -19,22 +19,25 @@ Profil | {{ parent() }}
                 {% endif %}
             %} disabled
             >Abonné
-            {% for cart in user.carts %}
-                <p>Commande : {{ cart.id }}, Date : {{ cart.dateCreated|date("m/d/Y") }}</p>
-                    {% for book in cart.books %}
-                        Livre : {{ book.title }}
+            <table class="table">
+                <tr>
+                <th>Id</th><th>Date</th><th>Etat</th><th>Bd</th>
+                </tr>
+                {% for cart in user.carts %}
+                <tr>
+                <td>{{ cart.id }}</td><td>{{ cart.dateCreated|date("m/d/Y") }}</td><td>{{ cart.status }}</td>
+                    {% set authorList = [] %}
+                    <td>
+                    {% for book in cart.books %}                        
+                            {%for author in book.rel%}
+                                {% set authorList = authorList|merge([author.authors.firstname ~" "~ author.authors.lastname]) %}
+                            {%endfor%}                            
+                            <img src="{{ asset('Couvertures/'~ book.cover) }}" title="Livre : {{ book.title }}. Auteurs : {{ authorList|join(', ') }}." class="img-resized2" alt="{{book.title}}">
+                            {% set authorList = [] %}        
                     {% endfor %}
-            {% endfor %}
-            {#<a class="btn btn-danger" href="{{ path ("story_delete", {"id":story.id}) }}">Effacer cet article</a>#}
-            {#<a id="voteBtn" href="{{ path('test_ajax', {"storyId":story.id}) }}">Lien vers test ajax</a>#}
-            {#{{ form(commentForm, {'attr':{'novalidate':'novalidate'}}) }}
-            <h5>{{ story.user.username }}</h5>
-            <div class="comments">
-            {% for comment in story.comments %}
-                <h6>{{ comment.content }}</h6>
-            {% endfor %}
-
-            </div>#}
-
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
         </article>
 {% endblock %}
