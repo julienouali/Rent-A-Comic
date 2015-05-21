@@ -115,20 +115,12 @@ h4{
     height:300px;
 }
 
+.img-resized{
+    width:200px;
+    height:300px;
+} 
+
 .resultatsBd{
-=======
- .img-resized{
-     width:200px;
-     height:300px;
- }
- 
- .img-resized2{
-     width:40px;
-     height:60px;
- }
- 
- .resultatsBd{
->>>>>>> origin/master
     border: solid;
     margin-top: 25px;
     padding: 5px;
