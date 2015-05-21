@@ -25,7 +25,8 @@
         "cocur/slugify": "~1.1",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "fzaninotto/Faker": "~1.4",
-        "fzaninotto/faker": "~1.4"
+        "fzaninotto/faker": "~1.4",
+        "gregwar/captcha-bundle": "~1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
