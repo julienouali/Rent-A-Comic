@@ -14,6 +14,50 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 class UserController extends Controller
 {
+    
+    /**
+     * @Route("/profil/{slug}", requirements={"slug":"[a-z0-9-]+"}, name="user_details")
+     */
+    public function userDetailsAction(\Symfony\Component\HttpFoundation\Request $request, $slug )
+    {
+        $userRepo = $this->get("doctrine")->getRepository("AppBundle:User");
+        //$commentsRepo = $this->get("doctrine")->getRepository("AppBundle:Comment");
+
+        /*$story = $storyRepo->find($id);*/
+        $user = $userRepo->findOneBySlug($slug);
+        //pour page 404
+        if (!$user) {
+            throw $this->createNotFoundException("Hey merde!");
+        }
+
+        //$comment = new Comment();
+        //$commentForm = $this->createForm(new CommentType, $comment);
+        //$commentForm->handleRequest($request);
+        //if ($commentForm->isValid()){
+            /*$comment->setDateCreated(new \DateTime());
+            $comment->setDateModified(new \DateTime());
+            $comment->setStory($story);
+            $em = $this->get("doctrine")->getManager();
+            $em->persist($comment);
+            $em->flush();*/
+
+            //envoie un email à l'auteur de l'article
+        //}
+        // recupere les commentaires
+        /*$comments = $commentsRepo->findByStory($story);*/
+        /*$comments = $commentsRepo->findBy(array("story"=>$story));*/
+
+        $params = array (
+            "user" => $user
+            //"commentForm" => $commentForm->createView()
+            /*"comments" => $comments*/
+        );
+        //pour envoyer email
+        //$this->indexAction('jp');
+
+        return $this->render('user/user_details.html.twig',$params);
+        
+    }
     /**
      * @Route("Inscription" , name="inscription")
      */

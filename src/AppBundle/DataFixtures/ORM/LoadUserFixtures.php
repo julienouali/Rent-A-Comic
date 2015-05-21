@@ -45,7 +45,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber($faker->boolean($chanceOfGettingTrue = 85));
             $postalCodeArray = array();
-            for ($l=75000; $l < 75021 ; $l++ ) {
+            for ($l=75001; $l < 75021 ; $l++ ) {
                 array_push($postalCodeArray, $l);
             }
             shuffle($postalCodeArray);
