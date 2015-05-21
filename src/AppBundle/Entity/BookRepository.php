@@ -44,4 +44,20 @@ class BookRepository extends EntityRepository
         
     }
     
+    public function decrementQte($book)
+    {
+        $bookStock = $book->getStock();
+        $book->setStock($bookStock-1);
+        $this->getEntityManager()->persist($book);
+        $this->getEntityManager()->flush($book);
+    }
+    
+    public function incrementQte($book)
+    {
+        $bookStock = $book->getStock();
+        $book->setStock($bookStock+1);
+        $this->getEntityManager()->persist($book);
+        $this->getEntityManager()->flush($book);
+    }
+    
 }

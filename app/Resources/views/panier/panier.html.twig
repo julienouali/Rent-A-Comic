@@ -2,4 +2,23 @@
 
 {% block body %} 
     <h2> Votre Panier </h2>
+    <table class="table">
+        <tr>
+            <th>N°de Commande</th>
+            <th>Titre du Livre</th>
+            <th>Status</th>
+        </tr>
+    {%for cart in carts%}
+        <tr>
+            <td>{{cart.id}}</td>
+            <td>
+            {%for book in cart.books%}
+                {{book.title}}
+            {%endfor%}
+            </td>
+            <td>{{cart.status}}</td>
+        </tr>
+    {%endfor%}
+    
+    </table>
 {% endblock %}

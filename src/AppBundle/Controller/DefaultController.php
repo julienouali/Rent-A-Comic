@@ -39,7 +39,24 @@ class DefaultController extends Controller
      */
     public function panierAction()
     {
-      return $this->render('panier/panier.html.twig');  
+        if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) 
+        {
+            $cartRepo = $this->getDoctrine()->getRepository('AppBundle:Cart');
+            
+            
+            $param = array('carts'=> $cartRepo->findByUser($this->getUser())
+                            );
+            
+            return $this->render('panier/panier.html.twig',$param);  
+            
+        }else{
+            return $this->redirect($this->generateUrl('home'));
+        }
+        
+        
+        
+        
+        
     }
     
 }

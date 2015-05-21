@@ -12,4 +12,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class CartRepository extends EntityRepository
 {
+     public function findCartByUser($user){
+         
+         $qb = $this->createQueryBuilder('c');
+        
+        $qb->select('c')
+                ->addSelect('u')
+                ->leftJoin('c.user', 'u')
+                ->where('c.user ='.$user->getId());
+                
+        
+            $query = $qb->getQuery();
+        
+            return $query->getResult();
+         
+         
+     }
+    
+    
+    
+    
+    
 }
