@@ -28,7 +28,7 @@ header{
     width: 300px;
 }
 
-.checkbox{
+.radio{
     margin-left: 15px;
 }
 
@@ -61,15 +61,31 @@ header{
     width: 200px
 }
 
+.pagi ins{
+    float: left;
+    padding: 30px 10px 0px 0px;
+}
+
 #dropdownMenu1{
     border: solid;
-    margin: 10px 20px;
+    margin: 20px;
 }
 
 #dropdownMenu2{
     border: solid;
-    margin: 10px 20px;
+    margin: 20px;
 }
+
+.description{
+    float: right;
+    margin-right: 20px;   margin-top: 20px;
+}
+
+.description :first-child{ 
+    font-weight: bold;
+    font-style: italic;
+}
+
 .dropdown-menu{
     border: solid;
 }
@@ -93,14 +109,21 @@ h4{
     margin-top: 26px;
  }
 
- .img-resized{
-     width:200px;
-     height:300px;
- }
- 
- .resultatsBd{
+<<<<<<< HEAD
+.img-resized{
+    width:200px;
+    height:300px;
+}
+
+.img-resized{
+    width:200px;
+    height:300px;
+} 
+
+.resultatsBd{
     border: solid;
     margin-top: 25px;
     padding: 5px;
     background-color: #eee;
+    max-height: 350px;
 }

@@ -26,7 +26,8 @@
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "fzaninotto/Faker": "~1.4",
         "fzaninotto/faker": "~1.4",
-        "gregwar/captcha-bundle": "~1.1"
+        "gregwar/captcha-bundle": "~1.1",
+        "knplabs/knp-paginator-bundle": "~2.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

@@ -4,9 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use \Doctrine\ORM\EntityManager;
-
-use AppBundle\Entity\BookRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -19,16 +17,19 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("catalogue" , name="catalogue")
+     * @Route("catalogue/{page}", requirements={"catalogue/page":"\d+"}, defaults={"page":1}, name="catalogue")
      */
-    public function catalogueAction()
+    public function catalogueAction(Request $request, $page)
     {
         $catRepo = $this->getDoctrine()->getRepository('AppBundle:Book');
         $relBookAuthorRepo = $this->getDoctrine()->getRepository('AppBundle:RelBookAuthor');
         $authorRepo = $this->getDoctrine()->getRepository('AppBundle:Author');
+        
+        $paginationResults = $catRepo->findPaginated($page);
 
-        $param = array("lesBds" =>$catRepo->findAllBook(),
-                        );
+        $param = array(
+                "paginationResults" => $paginationResults,
+                );
         
         return $this->render('catalogue/catalogue.html.twig',$param);
     }
