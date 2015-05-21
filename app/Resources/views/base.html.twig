@@ -17,7 +17,7 @@
                 <ul id="menu" class="btn-group" role="group" aria-label="...">
                     <a class="btn btn-default" href="{{ path('home') }}" title="BDloc | Accueil">Accueil</a>
                     <a class="btn btn-default" href="{{ path('catalogue') }}" title="Catalogue">Catalogue</a>
-                    <a class="btn btn-default" href="{{ path('panier') }}" title="Panier">Mon Panier</a>
+                    <a class="btn btn-default" href="{{ path('panier') }}" title="Panier">Mon Panier <span class="badge">0</span></a>
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <a class="btn btn-default" href="{{ path('logout') }}" title="Panier">Se déconnecter</a>    
                     {% else %}
