@@ -65,14 +65,14 @@ class Cart
     /**
      * @var float
      *
-     * @ORM\Column(name="totalAmont", type="float")
+     * @ORM\Column(name="totalAmont", type="float" ,nullable=true)
      */
     private $totalAmont;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateToBeReturn", type="datetime")
+     * @ORM\Column(name="dateToBeReturn", type="datetime", nullable=true)
      */
     private $dateToBeReturn;
     

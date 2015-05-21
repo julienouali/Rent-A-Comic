@@ -50,9 +50,9 @@ class Fine
     /**
      * @var float
      *
-     * @ORM\Column(name="amont", type="float")
+     * @ORM\Column(name="amount", type="float")
      */
-    private $amont;
+    private $amount;
 
     /**
      * @var string
@@ -238,5 +238,28 @@ class Fine
     public function getCart()
     {
         return $this->cart;
+    }
+
+    /**
+     * Set amount
+     *
+     * @param float $amount
+     * @return Fine
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return float 
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 }

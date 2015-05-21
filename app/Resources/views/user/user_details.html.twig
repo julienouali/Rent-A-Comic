@@ -25,7 +25,25 @@ Profil | {{ parent() }}
                 </tr>
                 {% for cart in user.carts %}
                 <tr>
-                <td>{{ cart.id }}</td><td>{{ cart.dateCreated|date("m/d/Y") }}</td><td>{{ cart.status }}</td><td>{{ cart.dateToBeReturn|date("m/d/Y") }}</td><td>{{ cart.dateReallyReturned|date("m/d/Y") }}</td><td>no</td>
+                <td>{{ cart.id }}</td><td>{{ cart.dateCreated|date("m/d/Y") }}</td><td>{{ cart.status }}</td><td>{{ cart.dateToBeReturn|date("m/d/Y") }}</td><td>{{ cart.dateReallyReturned|date("m/d/Y") }}
+                </td><td>
+                    {% set fineText = 'Non' %}
+                    {% for fine in cart.fines %}                        
+                        {% if fine.id %}
+                            {#{{ cart.id }}#}
+                            {% set fineText = 'Oui' %}
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if fineText == 'Oui' %}
+                        {#<a href="{{ path("fine_details", {"cart":cart.id}) }}" title="Voir">Oui</a>#}
+                        {#<a href="{{ path("home") }}" title="Voir">Oui</a>#}
+                        <a href="{{ path("fine_details", {"cart":cart.id}) }}" title="Voir">Oui</a>                        
+                    {% else %}
+                        {{ fineText }}
+                    {% endif %}
+                    
+                    </td>
                     {% set authorList = [] %}
                     <td>
                     {% for book in cart.books %}                        

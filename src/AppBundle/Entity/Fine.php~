@@ -50,9 +50,9 @@ class Fine
     /**
      * @var float
      *
-     * @ORM\Column(name="amont", type="float")
+     * @ORM\Column(name="amount", type="float")
      */
-    private $amont;
+    private $amount;
 
     /**
      * @var string
