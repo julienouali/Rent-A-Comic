@@ -91,6 +91,7 @@ class UserController extends Controller
             $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 5035));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));
+            $user->setCb('4485187294407276');
             //$cryptedpass = password_hash($user->getPassword(), PASSWORD_BCRYPT);
             //$user->setPassword($cryptedpass);
             

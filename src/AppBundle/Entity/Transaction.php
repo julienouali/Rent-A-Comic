@@ -22,6 +22,11 @@ class Transaction
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Fine", inversedBy="transactions")
+     */
+    private $fine;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateCreated", type="datetime")
@@ -43,27 +48,26 @@ class Transaction
     private $status;
 
     /**
-     * @var float
+     * @var decimal
      *
-     * @ORM\Column(name="amont", type="float")
+     * @ORM\Column(name="amount", type="decimal", precision=9, scale=2, nullable=true)
      */
-    private $amont;
+    private $amount;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rib", type="string", length=255)
+     * @ORM\Column(name="transactionId", type="string", length=255)
      */
-    private $rib;
+    private $transactionId;
 
-    /**
-     * @var integer
+        /**
+     * @var string
      *
-     * @ORM\Column(name="idCart", type="integer")
+     * @ORM\Column(name="message", type="string", length=255)
      */
-    private $idCart;
-
-
+    private $message;
+    
     /**
      * Get id
      *
@@ -190,25 +194,94 @@ class Transaction
     }
 
     /**
-     * Set idCart
+     * Set amount
      *
-     * @param integer $idCart
+     * @param string $amount
      * @return Transaction
      */
-    public function setIdCart($idCart)
+    public function setAmount($amount)
     {
-        $this->idCart = $idCart;
+        $this->amount = $amount;
 
         return $this;
     }
 
     /**
-     * Get idCart
+     * Get amount
      *
-     * @return integer 
+     * @return string 
      */
-    public function getIdCart()
+    public function getAmount()
     {
-        return $this->idCart;
+        return $this->amount;
+    }
+
+    /**
+     * Set transaction_id
+     *
+     * @param string $transactionId
+     * @return Transaction
+     */
+    public function setTransactionId($transactionId)
+    {
+        $this->transactionId = $transactionId;
+
+        return $this;
+    }
+
+    /**
+     * Get transaction_id
+     *
+     * @return string 
+     */
+    public function getTransactionId()
+    {
+        return $this->transactionId;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     * @return Transaction
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string 
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * Set fine
+     *
+     * @param \AppBundle\Entity\Fine $fine
+     * @return Transaction
+     */
+    public function setFine(\AppBundle\Entity\Fine $fine = null)
+    {
+        $this->fine = $fine;
+
+        return $this;
+    }
+
+    /**
+     * Get fine
+     *
+     * @return \AppBundle\Entity\Fine 
+     */
+    public function getFine()
+    {
+        return $this->fine;
     }
 }

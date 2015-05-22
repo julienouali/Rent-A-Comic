@@ -26,7 +26,7 @@ Profil | {{ parent() }}
                 </tr>
                 {% for cart in user.carts %}
                 <tr>
-                <td>{{ cart.id }}</td><td>{{ cart.dateCreated|date("m/d/Y") }}</td><td>{{ cart.status }}</td><td>{{ cart.dateToBeReturn|date("m/d/Y") }}</td><td>{{ cart.dateReallyReturned|date("m/d/Y") }}
+                <td>{{ cart.id }}</td><td>{{ cart.dateCreated|date("d/m/Y") }}</td><td>{{ cart.status }}</td><td>{{ cart.dateToBeReturn|date("d/m/Y") }}</td><td>{{ cart.dateReallyReturned|date("d/m/Y") }}
                 </td><td>
                     {% set fineText = 'Non' %}
                     {% for fine in cart.fines %}                        
