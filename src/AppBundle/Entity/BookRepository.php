@@ -35,9 +35,8 @@ class BookRepository extends EntityRepository
                 ->leftJoin('r.authors', 'a')
                 ->leftJoin('b.serie', 's')
                 ->leftJoin('s.categories', 'c')
-                ->where(
-                        
-                    )
+//                ->where(                        
+//                    )
                 ;                
                         
         $query = $qb->getQuery();
