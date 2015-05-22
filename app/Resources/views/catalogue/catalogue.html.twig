@@ -10,22 +10,22 @@
                 <form action="{{ path('login_check') }}">
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option1"> Polar
+                          <input type="checkbox" value="option1"> Science-fiction
                         </label>
                     </div>
                     <div class="checkbox" value="option1">
                         <label>
-                          <input type="checkbox" value="option2"> Historique
+                          <input type="checkbox" value="option2"> Aventure
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option3"> Tranche de Vie
+                          <input type="checkbox" value="option3"> Polar/Thriller
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option4"> Aventure
+                          <input type="checkbox" value="option4"> Historique
                         </label>
                     </div>
                     <div class="checkbox">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option5"> Fantastique
+                          <input type="checkbox" value="option5"> Humour
                         </label>
                     </div>
                     <h4> Disponibilité </h4>
@@ -110,7 +110,7 @@
                             {%for author in bd.rel%}
                                 <p>{{author.authors.firstname ~" "~ author.authors.lastname}}</p>
                             {%endfor%}<br>                            
-                            <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-info" id="btdetail">Details</a><br>
+                            <a href="{{path('details')}}" class="btn btn-info" id="btdetail">Details</a><br>
                             <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-primary" id="btpannier">Ajouter Au Panier</a>
                         </div>
                     </div>
