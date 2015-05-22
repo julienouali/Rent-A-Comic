@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * BookRepository
@@ -17,28 +18,47 @@ class BookRepository extends EntityRepository
         $this->em = $this->getEntityManager();  
         $qb = $this->createQueryBuilder('b');
         
+        $filter = array();
+        if(isset($_GET['checkbox'])){
+            $tabCheckbox = $_GET['checkbox'];
+            foreach ($tabCheckbox as $checkbox) {
+                $filter = $checkbox;
+            };
+        }
+                
         $qb->select('b')
                 ->addSelect('r')
                 ->addSelect('a')
-                ->leftJoin('b.rel', 'r')
-                ->leftJoin('r.authors', 'a');
+                ->addSelect('s')
+                ->addSelect('c')
+                ->leftJoin('b.rel', 'r')                
+                ->leftJoin('r.authors', 'a')
+                ->leftJoin('b.serie', 's')
+                ->leftJoin('s.categories', 'c')
+                ->where(
+                        
+                    )
+                ;                
                         
         $query = $qb->getQuery();
+        
+        dump($query);
         
         $numPerPage = 10;
         $query->setMaxResults($numPerPage);
         $query->setFirstResult( ($page-1) * $numPerPage );
-        $result = $query->getResult();
+        $paginator = new Paginator($query, $fetchJoinCollection = true);
+        $result = $paginator;
         
         $paginationResults = array();
-        
+                
         //les actualités
         $paginationResults["data"] = $result;
         //affichage des infos sur les résultats
         $paginationResults['nowShowingMin'] = ($page-1) * $numPerPage + 1;
-        $paginationResults['nowShowingMax'] = $paginationResults['nowShowingMin'] + count($result) - 1;
+        $paginationResults['nowShowingMax'] = ($page-1) * $numPerPage + 10;
         //nombre total possible
-        $paginationResults["total"] = $qb->select("COUNT(b)")->getQuery()->getSingleScalarResult();
+        $paginationResults["total"] = count($result)+1;
         //liens numériques
         $numPagesDiff = 2;
         $lastPage = ceil($paginationResults["total"] / $numPerPage);

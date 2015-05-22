@@ -27,6 +27,11 @@ class Fine
     private $cart;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Transaction", mappedBy="fine")
+     */
+    private $transactions;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateCreated", type="datetime")
@@ -261,5 +266,45 @@ class Fine
     public function getAmount()
     {
         return $this->amount;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->transactions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add transactions
+     *
+     * @param \AppBundle\Entity\Transaction $transactions
+     * @return Fine
+     */
+    public function addTransaction(\AppBundle\Entity\Transaction $transactions)
+    {
+        $this->transactions[] = $transactions;
+
+        return $this;
+    }
+
+    /**
+     * Remove transactions
+     *
+     * @param \AppBundle\Entity\Transaction $transactions
+     */
+    public function removeTransaction(\AppBundle\Entity\Transaction $transactions)
+    {
+        $this->transactions->removeElement($transactions);
+    }
+
+    /**
+     * Get transactions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTransactions()
+    {
+        return $this->transactions;
     }
 }

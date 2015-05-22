@@ -1,5 +1,9 @@
 header{
-    display: inline-flex
+    display: inline-flex;
+}
+
+h2{
+    margin: 10px 0px 30px 0px;
 }
 
 .login{
@@ -14,6 +18,20 @@ header{
 #recherche{
     width: 110px;
     margin-left: 15px;
+}
+
+.filtres h3{
+    position: absolute;
+    top: -35px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.resultats h3{
+    position: absolute;
+    top: -35px;
+    background-color: white;
+    border-radius: 5px;
 }
 
 #inscription{
@@ -42,6 +60,11 @@ header{
 .filtres{
     border: solid;
     padding: 5px;
+    background-color: #eee;
+}
+
+.filtres #btsearch{
+    margin: 15px;
     background-color: #eee;
 }
 
@@ -79,6 +102,7 @@ header{
 .description{
     float: right;
     margin-right: 20px;   margin-top: 20px;
+    max-width: 150px;
 }
 
 .description :first-child{ 
@@ -103,13 +127,17 @@ header{
 h2{
     color: gray
 }
+
 h4{
     margin-bottom: 10px;
     margin-left: 15px;
     margin-top: 26px;
  }
+ #voir{
+     width:64px;
+ }
 
-<<<<<<< HEAD
+
 .img-resized{
     width:200px;
     height:300px;

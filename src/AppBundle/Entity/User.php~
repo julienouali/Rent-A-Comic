@@ -42,6 +42,13 @@ class User implements UserInterface
      * @ORM\Column(name="longitude", type="decimal", precision=9, scale=7, nullable=true)
      */
     private $longitude;       
+
+    /**
+     * @var cb
+     *
+     * @ORM\Column(name="cb", type="string", length=255, nullable=true)
+     */
+    private $cb;           
     
     /**
      * @var array
@@ -554,5 +561,51 @@ class User implements UserInterface
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * Set cd
+     *
+     * @param integer $cd
+     * @return User
+     */
+    public function setCd($cd)
+    {
+        $this->cd = $cd;
+
+        return $this;
+    }
+
+    /**
+     * Get cd
+     *
+     * @return integer 
+     */
+    public function getCd()
+    {
+        return $this->cd;
+    }
+
+    /**
+     * Set cb
+     *
+     * @param integer $cb
+     * @return User
+     */
+    public function setCb($cb)
+    {
+        $this->cb = $cb;
+
+        return $this;
+    }
+
+    /**
+     * Get cb
+     *
+     * @return integer 
+     */
+    public function getCb()
+    {
+        return $this->cb;
     }
 }

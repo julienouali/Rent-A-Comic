@@ -7,51 +7,52 @@
             <div class="filtres">
                 <h3>Filtres</h3>
                 <h4> Catégories </h4>
-                <form action="{{ path('login_check') }}">
+                <form method="get">
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option1"> Polar
+                          <input type="checkbox" name="choix[]" value="1"> Science-fiction
                         </label>
                     </div>
                     <div class="checkbox" value="option1">
                         <label>
-                          <input type="checkbox" value="option2"> Historique
+                          <input type="checkbox" name="choix[]" value="2"> Aventure
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option3"> Tranche de Vie
+                          <input type="checkbox" name="choix[]" value="3"> Polar/Thriller
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option4"> Aventure
+                          <input type="checkbox" name="choix[]" value="4"> Historique
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option5"> Jeunesse
+                          <input type="checkbox" name="choix[]" value="5"> Jeunesse
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option5"> Fantastique
+                          <input type="checkbox" name="choix[]" value="6"> Humour
                         </label>
                     </div>
                     <h4> Disponibilité </h4>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option6"> Disponible
+                          <input type="checkbox" name="choix[]" value="option1"> Disponible
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                          <input type="checkbox" value="option7"> Indisponible
+                          <input type="checkbox" name="choix[]" value="option2"> Indisponible
                         </label>
                     </div>
                 </form>
                 <h4> Recherche </h4>
                 <input type="text" class="form-control" id="recherche" name="motclef" placeholder="mots-clefs" />
+                <a href="#" class="btn btn-default" id="btsearch">Rechercher</a><br>
             </div>    
         </div>
         <div class="col-md-10">
@@ -110,7 +111,7 @@
                             {%for author in bd.rel%}
                                 <p>{{author.authors.firstname ~" "~ author.authors.lastname}}</p>
                             {%endfor%}<br>                            
-                            <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-info" id="btdetail">Details</a><br>
+                            <a href="{{path('details')}}" class="btn btn-info" id="btdetail">Details</a><br>
                             <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-primary" id="btpannier">Ajouter Au Panier</a>
                         </div>
                     </div>
