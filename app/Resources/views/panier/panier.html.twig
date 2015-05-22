@@ -5,20 +5,19 @@
     <table class="table">
         <tr>
             <th>N°de Commande</th>
+            <th>Livre</th>
             <th>Titre du Livre</th>
             <th>Status</th>
         </tr>
     {%for cart in carts%}
         <tr>
             <td>{{cart.id}}</td>
-            <td>
             {%for book in cart.books%}
-                {{book.title}}
+                <td> <img src="{{asset('Couvertures/'~book.cover)}}" alt="{{book.title}}" class="img-resized2" > </td>
+                <td>{{book.title}}</td>
             {%endfor%}
-            </td>
             <td>{{cart.status}}</td>
         </tr>
     {%endfor%}
-    
     </table>
 {% endblock %}
