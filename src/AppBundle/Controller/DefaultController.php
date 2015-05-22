@@ -44,8 +44,7 @@ class DefaultController extends Controller
         {
             $cartRepo = $this->getDoctrine()->getRepository('AppBundle:Cart');
             
-            
-            $param = array('carts'=> $cartRepo->findByUser($this->getUser())
+            $param = array('carts'=> $cartRepo->findCartEnCourByUser($this->getUser())
                             );
             
             return $this->render('panier/panier.html.twig',$param);  

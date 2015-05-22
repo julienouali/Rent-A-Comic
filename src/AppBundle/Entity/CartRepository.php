@@ -12,14 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class CartRepository extends EntityRepository
 {
-     public function findCartByUser($user){
+     public function findCartEnCourByUser($user){
          
          $qb = $this->createQueryBuilder('c');
         
         $qb->select('c')
                 ->addSelect('u')
+                ->addSelect('b')
                 ->leftJoin('c.user', 'u')
-                ->where('c.user ='.$user->getId());
+                ->innerJoin('c.books', 'b')
+                ->Where('c.status = :encour')
+                ->setParameter('encour', 'En Cours de Commande')
+                ->andwhere('c.user ='.$user->getId());
+                
                 
         
             $query = $qb->getQuery();
@@ -28,9 +33,4 @@ class CartRepository extends EntityRepository
          
          
      }
-    
-    
-    
-    
-    
 }

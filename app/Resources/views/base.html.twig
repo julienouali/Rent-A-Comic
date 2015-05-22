@@ -8,6 +8,7 @@
             <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
     </head>
     <body>
         <div class="container">
@@ -17,7 +18,19 @@
                 <ul id="menu" class="btn-group" role="group" aria-label="...">
                     <a class="btn btn-default" href="{{ path('home') }}" title="BDloc | Accueil">Accueil</a>
                     <a class="btn btn-default" href="{{ path('catalogue') }}" title="Catalogue">Catalogue</a>
-                    <a class="btn btn-default" href="{{ path('panier') }}" title="Panier">Mon Panier <span class="badge">0</span></a>
+                    <a class="btn btn-default" href="{{ path('panier') }}" title="Panier">Mon Panier
+                                            <span class="badge">{%if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                                                                    {% set counter = 0%}
+                                                                    {%for cart in app.user.carts %}
+                                                                        {%if cart.status == "En Cours de Commande" %}
+                                                                            {%for book in cart.books%}
+                                                                                {% set counter = counter + 1 %}
+                                                                            {%endfor%}
+                                                                        {%endif%}
+                                                                    {%endfor%}
+                                                                    {{counter}}
+                                                                {%endif%}</span>
+                    </a>
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <a class="btn btn-default" href="{{ path("user_details", {"slug":app.user.slug}) }}" title="Profil">Profil</a>    
                     <a class="btn btn-default" href="{{ path('logout') }}" title="Déconnexion">Se déconnecter</a>    
@@ -47,7 +60,9 @@
         <footer>
             {% block footer %}{% endblock %}
         </footer>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        
+        {% endblock %}
 
         </div>
     </body>
