@@ -18,23 +18,31 @@ class BookRepository extends EntityRepository
         $this->em = $this->getEntityManager();  
         $qb = $this->createQueryBuilder('b');
         
-        /**SELECT book.title, book.id, categoryName
-        FROM book
-        LEFT JOIN serie ON book.serie_id=serie.id
-        LEFT JOIN category ON serie.id=category.id
-        WHERE category.id=2**/
-        
+        $filter = array();
+        if(isset($_GET['checkbox'])){
+            $tabCheckbox = $_GET['checkbox'];
+            foreach ($tabCheckbox as $checkbox) {
+                $filter = $checkbox;
+            };
+        }
+                
         $qb->select('b')
                 ->addSelect('r')
                 ->addSelect('a')
-//                ->addSelect('s')
-//                ->addSelect('c')
+                ->addSelect('s')
+                ->addSelect('c')
                 ->leftJoin('b.rel', 'r')                
-                ->leftJoin('r.authors', 'a');
-//                ->leftJoin('b.serie', 's')
-//                ->leftJoin('s.categories', 'c');
+                ->leftJoin('r.authors', 'a')
+                ->leftJoin('b.serie', 's')
+                ->leftJoin('s.categories', 'c')
+                ->where(
+                        
+                    )
+                ;                
                         
         $query = $qb->getQuery();
+        
+        dump($query);
         
         $numPerPage = 10;
         $query->setMaxResults($numPerPage);
@@ -43,10 +51,7 @@ class BookRepository extends EntityRepository
         $result = $paginator;
         
         $paginationResults = array();
-        
-        dump($result);
-        dump($query);
-        
+                
         //les actualités
         $paginationResults["data"] = $result;
         //affichage des infos sur les résultats

@@ -63,6 +63,11 @@ h2{
     background-color: #eee;
 }
 
+.filtres #btsearch{
+    margin: 15px;
+    background-color: #eee;
+}
+
 #abonne{
     margin-left: 400px;
     margin-top: 20px;
