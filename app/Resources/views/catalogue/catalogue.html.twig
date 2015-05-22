@@ -8,45 +8,45 @@
                 <h3>Filtres</h3>
                 <h4> Catégories </h4>
                 <form action="{{ path('login_check') }}">
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
-                          <input type="radio"> Polar
+                          <input type="checkbox" value="option1"> Polar
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="checkbox" value="option1">
                         <label>
-                          <input type="radio"> Historique
+                          <input type="checkbox" value="option2"> Historique
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
-                          <input type="radio"> Tranche de Vie
+                          <input type="checkbox" value="option3"> Tranche de Vie
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
-                          <input type="radio"> Aventure
+                          <input type="checkbox" value="option4"> Aventure
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
-                          <input type="radio"> Jeunesse
+                          <input type="checkbox" value="option5"> Jeunesse
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
-                          <input type="radio"> Fantastique
+                          <input type="checkbox" value="option5"> Fantastique
                         </label>
                     </div>
                     <h4> Disponibilité </h4>
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
-                          <input type="radio"> Disponible
+                          <input type="checkbox" value="option6"> Disponible
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
-                          <input type="radio"> Indisponible
+                          <input type="checkbox" value="option7"> Indisponible
                         </label>
                     </div>
                 </form>
@@ -67,8 +67,7 @@
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Auteur</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Date de parution</a></li>
                     </ul>
-                </div>
-                
+                </div>                
                 <div class="dropdown">    
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
                         Nombre de BD à afficher
@@ -83,7 +82,6 @@
                 <div class="pagi">
                     <ins>{{ paginationResults.nowShowingMin }} à {{ paginationResults.nowShowingMax }} sur {{ paginationResults.total }}</ins>
                     <ul class="pagination">
-
                         {% if paginationResults.prevPage %}
 
                         <li><a href="{{ path('catalogue', {page: paginationResults.prevPage}) }}">Précédent</a></li>
@@ -99,12 +97,10 @@
                         <li><a href="{{ path('catalogue', {page: paginationResults.nextPage}) }}">Suivant</a></li>
 
                         {% endif %}
-
                     </ul>
                 </div>        
             </div>
-            <div>
-                    
+            <div>                    
                 {%for bd in paginationResults.data %}
                     <div class="col-md-5 resultatsBd ">
                         <img src="{{ asset('Couvertures/'~ bd.cover) }}" class="img-resized" alt="{{bd.title}}">
@@ -113,15 +109,14 @@
                             <ins> Auteurs: </ins>
                             {%for author in bd.rel%}
                                 <p>{{author.authors.firstname ~" "~ author.authors.lastname}}</p>
-                            {%endfor%}
-                            <br>
+                            {%endfor%}<br>                            
+                            <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-info" id="btdetail">Details</a><br>
                             <a href="{{path('ajoutP',{'slug' : bd.slug})}}" class="btn btn-primary" id="btpannier">Ajouter Au Panier</a>
                         </div>
                     </div>
                     <div class="col-md-1">
                     </div>
-                {%endfor%}
-                    
+                {%endfor%}                    
             </div>
         </div>
         <div class="col-md-1"></div>
