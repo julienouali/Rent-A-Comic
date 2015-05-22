@@ -22,6 +22,27 @@ class User implements UserInterface
      */
     private $id;
     
+/**
+     * @var myMoney
+     *
+     * @ORM\Column(name="myMoney", type="decimal", precision=9, scale=2, nullable=true)
+     */
+    private $myMoney;   
+    
+    /**
+     * @var latitude
+     *
+     * @ORM\Column(name="latitude", type="decimal", precision=9, scale=7, nullable=true)
+     */
+    private $latitude;   
+    
+    /**
+     * @var longitude
+     *
+     * @ORM\Column(name="longitude", type="decimal", precision=9, scale=7, nullable=true)
+     */
+    private $longitude;       
+    
     /**
      * @var array
      *
@@ -464,5 +485,74 @@ class User implements UserInterface
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    /**
+     * Set myMoney
+     *
+     * @param string $myMoney
+     * @return User
+     */
+    public function setMyMoney($myMoney)
+    {
+        $this->myMoney = $myMoney;
+
+        return $this;
+    }
+
+    /**
+     * Get myMoney
+     *
+     * @return string 
+     */
+    public function getMyMoney()
+    {
+        return $this->myMoney;
+    }
+
+    /**
+     * Set latitude
+     *
+     * @param string $latitude
+     * @return User
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return string 
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Set longitude
+     *
+     * @param string $longitude
+     * @return User
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return string 
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
     }
 }

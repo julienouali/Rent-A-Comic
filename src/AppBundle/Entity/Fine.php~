@@ -239,4 +239,27 @@ class Fine
     {
         return $this->cart;
     }
+
+    /**
+     * Set amount
+     *
+     * @param float $amount
+     * @return Fine
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return float 
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
 }

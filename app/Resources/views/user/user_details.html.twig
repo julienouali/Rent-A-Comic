@@ -9,16 +9,17 @@ Profil | {{ parent() }}
             <p>Utilisateur : {{ user.firstName }} {{ user.lastName }}</p>
             <p>Pseudo : {{ user.nickname }} </p>
             <p>E-mail : {{ user.email }} </p>
+            <p>Ma fortune : {{ user.myMoney }} €</p>
             <p>Adresse : {{ user.address }}</p>   
-            <p>Code Postal : {{ user.postalCode }}</p>
-            <p>Ville : {{ user.city }}</p>
+            <p>Ville : {{ user.postalCode }} {{ user.city }}</p>
             <p>Téléphone : {{ user.tel }}</p>
             <input type="radio" name="choix" value="mi"
                 {% if user.subscriber == 1 %}
                     checked
                 {% endif %}
             %} disabled
-            >Abonné
+            >Abonné<br>
+            Historique des commandes :
             <table class="table">
                 <tr>
                 <th>Id</th><th>Date Commande</th><th>Etat</th><th>Date de retour</th><th>Date retour réel</th><th>Amendes</th><th>Bd</th>

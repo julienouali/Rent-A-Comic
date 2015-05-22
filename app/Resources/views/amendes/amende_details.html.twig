@@ -5,6 +5,12 @@ Amendes | {{ parent() }}
 {% endblock %}
 
 {% block body %}
-Amendes à payer
+Historiques des amendes :
+<table class="table">    
+    <tr><th>Id</th><th>Montant</th><th>Type de l'amende</th><th>Etat</th></tr>
+    {% for fine in fines %}
+        <tr><td>{{ fine.id }}</td><td>{{ fine.amount }}</td><td>{{ fine.motif}}</td><td>{{ fine.status}}</td></tr>
+    {% endfor %}    
+</table>
 {% endblock %}
 

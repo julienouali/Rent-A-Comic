@@ -45,6 +45,10 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber($faker->boolean($chanceOfGettingTrue = 85));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 5035));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));
+            
             $postalCodeArray = array();
             for ($l=75001; $l < 75021 ; $l++ ) {
                 array_push($postalCodeArray, $l);
@@ -92,6 +96,9 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));
             $user->setPostalCode('75007');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
@@ -114,6 +121,9 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setPostalCode('75016');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
@@ -136,6 +146,9 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setPostalCode('75001');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
@@ -158,6 +171,9 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setPostalCode('75016');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
@@ -208,6 +224,9 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setPostalCode('75016');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
@@ -257,6 +276,9 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setPostalCode('75016');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
@@ -340,6 +362,9 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setPostalCode('75016');            
             $encoder= $this->container->get("security.password_encoder");
             $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
@@ -448,6 +473,16 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $fine->setMotif('Endommagé');
             $fine->setStatus('Payée');
             $manager->persist($fine);
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 350));
+            $fine->setMotif('Retard');
+            $fine->setStatus('Non payée');
+            $manager->persist($fine);            
 
             $cart = new cart();
             
@@ -483,6 +518,16 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $fine->setMotif('Endommagé');
             $fine->setStatus('Non payée');
             $manager->persist($fine);            
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 350));
+            $fine->setMotif('Retard');
+            $fine->setStatus('Payée');
+            $manager->persist($fine);                        
             
             
         $manager->flush();
