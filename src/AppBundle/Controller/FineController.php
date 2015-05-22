@@ -64,10 +64,10 @@ class FineController extends Controller
         $file = file_get_contents($http);
         $tab = array ();
         $tab = json_decode($file, true);
-        $transaction_id = ['transaction_id'];
+        $transaction_id = $tab['transaction_id'];
         $status = $tab['status'];
         $message = $tab['message'];
-        
+        //$test='jp';
         //dump($tab);
         //die();
         
@@ -83,6 +83,7 @@ class FineController extends Controller
         $transaction->setAmount($fine->getAmount());
         $transaction->setTransactionId($transaction_id);
         $em->persist($transaction); 
+        $em->flush();
             
         //$pickup_spot->setLatitude($tab['results'][0]['geometry']['location']['lat']);
         //$pickup_spot->setLongitude($tab['results'][0]['geometry']['location']['lng']);        
