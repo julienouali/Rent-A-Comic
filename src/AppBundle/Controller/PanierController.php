@@ -23,13 +23,15 @@ class PanierController extends Controller
                 $bookRepo = $this->getDoctrine()->getRepository('AppBundle:Book');
                 $cartRepo = $this->getDoctrine()->getRepository('AppBundle:Cart');
                 
-                $cart = $cartRepo->findCartEnCourByUser($this->getUser())[0];
+                $cart = $cartRepo->findCartEnCourByUser($this->getUser());
                 if(!$cart){
                     $cart = new Cart();
                     $cart->setUser($this->getUser());
                     $cart->setDateCreated(new \DateTime());
                     $cart->setDateModified(new \DateTime());
                     $cart->setStatus('En Cours de Commande');
+                }else{
+                    $cart = $cartRepo->findCartEnCourByUser($this->getUser())[0];
                 }
                 
                 $commandBook = $bookRepo->findOneBySlug($slug);
