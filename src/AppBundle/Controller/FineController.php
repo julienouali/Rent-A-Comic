@@ -64,12 +64,9 @@ class FineController extends Controller
         $file = file_get_contents($http);
         $tab = array ();
         $tab = json_decode($file, true);
-        $transaction_id = ['transaction_id'];
+        $transaction_id = $tab['transaction_id'];
         $status = $tab['status'];
         $message = $tab['message'];
-        
-        //dump($tab);
-        //die();
         
         $transaction = new transaction ();
         $transaction->setFine($fine);
@@ -82,16 +79,32 @@ class FineController extends Controller
         $transaction->setMessage($message);
         $transaction->setAmount($fine->getAmount());
         $transaction->setTransactionId($transaction_id);
+        
+        $fine->setStatus('Payée');
         $em->persist($transaction); 
-            
+        $em->persist($fine); 
+        $em->flush();
+        
+        //$fineId = $fine->getId();
+        
+        $cartObj = $fine->getCart();
+        $cartId = $cartObj->getId();
         //$pickup_spot->setLatitude($tab['results'][0]['geometry']['location']['lat']);
         //$pickup_spot->setLongitude($tab['results'][0]['geometry']['location']['lng']);        
-        return $this->redirectToRoute("home");
+        
+        //return $this->redirectToRoute("home");
+
         /*return $this->redirectToRoute("transac_details",
                 array(
-                        "cart" => $fine.id
+                        "fine" => $fineId
                     )
                 );*/
+        
+        return $this->redirectToRoute("fine_details",
+                array(
+                        "cart" => $cartId
+                    )
+        );
         
         /*$fineRepo = $this->getDoctrine()->getRepository('AppBundle:Transaction');
         
