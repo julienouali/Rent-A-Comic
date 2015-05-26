@@ -6,13 +6,26 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use AppBundle\Entity\Book;
+
 class DetailsController extends Controller
 {
     /**
-     * @Route("/details", name="details")
+     * @Route("/details/{slug}", name="details")
      */
-    public function detailsAction()
+    public function detailsAction(Request $request, $slug)
     {
-        return $this->render('details/details.html.twig');
+        $bookRepo = $this->get("doctrine")->getRepository("AppBundle:Book");
+        $book = $bookRepo->findOneBySlug($slug);
+
+        if(!$book){
+            throw new createNotFoundException("Oups ! Désolé gamin...");            
+        }
+        
+        $params = array(
+            "bd" => $book
+        );
+        
+        return $this->render('details/details.html.twig', $params);
     }    
 }
