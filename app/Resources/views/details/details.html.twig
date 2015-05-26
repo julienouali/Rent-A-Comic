@@ -2,4 +2,20 @@
 
 {% block body %}
     <h2> Info sur le livre </h2>
+    <article>
+        <h3 class="details_title">{{ bd.title }}</a></h3>
+        <div class="col-md-5">
+            <img src="{{ asset('Couvertures/'~ bd.cover) }}" class="img-resized" alt="{{bd.title}}">
+            <div class="description">
+                <ins> Auteurs: </ins>
+                {%for author in bd.rel%}
+                    <p>{{author.authors.firstname ~" "~ author.authors.lastname}}</p>
+                {%endfor%}<br>
+                <ins> Editeur: </ins>
+                <p>{{ bd.editor }}</p>
+                <ins> Episode de la série: </ins>
+                <p>numéro {{ bd.seriePosition }}</p>
+            </div>
+        </div>
+    </article>
 {% endblock %}

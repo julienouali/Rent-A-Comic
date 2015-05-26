@@ -31,7 +31,7 @@ class LoadDropSpotDataData extends ContainerAware implements FixtureInterface
 			//(gets the coordinates, optionnal)
                         //https://developers.google.com/maps/documentation/geocoding/
                         //api key AIzaSyBcWvj67dQws2XTGNl4B57YxEyZFwkDb6s
-                        $go = 1;
+                        $go = 0;
                         if ($go=0) {
                         $tmpTab = explode (" ",$pickup_spot->getStoreName());
                         $nom = implode("+",$tmpTab);

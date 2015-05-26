@@ -44,5 +44,8 @@ monolog:
 assetic:
     use_controller: true
 
-#swiftmailer:
+swiftmailer:
+    transport: gmail
+    username:  fine.at.rent.a.comic@gmail.com
+    password:  iloverentacomic
 #    delivery_address: me@example.com

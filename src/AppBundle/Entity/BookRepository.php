@@ -18,13 +18,7 @@ class BookRepository extends EntityRepository
         $this->em = $this->getEntityManager();  
         $qb = $this->createQueryBuilder('b');
         
-        $filter = array();
-        if(isset($_GET['checkbox'])){
-            $tabCheckbox = $_GET['checkbox'];
-            foreach ($tabCheckbox as $checkbox) {
-                $filter = $checkbox;
-            };
-        }
+        
                 
         $qb->select('b')
                 ->addSelect('r')
@@ -35,9 +29,16 @@ class BookRepository extends EntityRepository
                 ->leftJoin('r.authors', 'a')
                 ->leftJoin('b.serie', 's')
                 ->leftJoin('s.categories', 'c')
-//                ->where(                        
-//                    )
-                ;                
+                ;
+        
+        if(isset($_GET['choix'])){
+            $tabCheckbox = $_GET['choix'];
+            foreach ($tabCheckbox as $checkbox) {
+            $qb ->orWhere('s.id=:id')
+                ->setParameter('id', $checkbox)
+                ;
+            }
+        }
                         
         $query = $qb->getQuery();
         
