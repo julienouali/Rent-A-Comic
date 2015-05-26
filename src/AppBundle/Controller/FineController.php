@@ -83,12 +83,18 @@ class FineController extends Controller
         $fine->setStatus('Payée');
         $em->persist($transaction); 
         $em->persist($fine); 
-        $em->flush();
+        
         
         //$fineId = $fine->getId();
         
         $cartObj = $fine->getCart();
         $cartId = $cartObj->getId();
+        $userObj = $cartObj->getUser();
+        $userObj->setMyMoney($userObj->getMyMoney()-$fine->getAmount());
+        //$userObj->setMyMoney(0);
+        $em->persist($userObj);
+                
+        $em->flush();
         //$pickup_spot->setLatitude($tab['results'][0]['geometry']['location']['lat']);
         //$pickup_spot->setLongitude($tab['results'][0]['geometry']['location']['lng']);        
         

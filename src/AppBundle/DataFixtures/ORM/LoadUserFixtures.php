@@ -46,7 +46,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);            
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber($faker->boolean($chanceOfGettingTrue = 85));
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 5035));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 650, $max = 1550));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));
             $user->setCb('4485187294407276');
@@ -97,7 +97,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 850, $max = 1399));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));
             $user->setCb('4485187294407276');
@@ -123,7 +123,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 850, $max = 1399));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setCb('4485187294407276');
@@ -149,7 +149,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 850, $max = 1399));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setCb('4485187294407276');
@@ -175,7 +175,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 850, $max = 1399));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setCb('4485187294407276');
@@ -229,7 +229,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 850, $max = 1399));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setCb('4485187294407276');
@@ -282,7 +282,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 850, $max = 1399));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setCb('4485187294407276');
@@ -353,10 +353,6 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             
             $manager->persist($cart);              
                        
-
-            
-            
-            
              
             $user = new User();
             $user->setFirstName('Lang');
@@ -369,7 +365,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setTel($faker->phoneNumber);
             $user->setRoles(array("ROLE_ADMIN"));
             $user->setSubscriber(1);
-            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 7, $max = 50350));
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 850, $max = 1399));
             $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
             $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
             $user->setCb('4485187294407276');
@@ -477,7 +473,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
             $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
             $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
-            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 350));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
             $fine->setMotif('Endommagé');
             $fine->setStatus('Payée');
             $manager->persist($fine);
@@ -497,7 +493,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
             $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
             $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
-            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 350));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
             $fine->setMotif('Retard');
             $fine->setStatus('Non payée');
             $manager->persist($fine);            
@@ -532,7 +528,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
             $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
             $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
-            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 350));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
             $fine->setMotif('Endommagé');
             $fine->setStatus('Non payée');
             $manager->persist($fine);            
@@ -542,7 +538,7 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
             $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
             $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
-            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 350));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
             $fine->setMotif('Retard');
             $fine->setStatus('Payée');
             $manager->persist($fine);
@@ -556,9 +552,317 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $transaction->setAmount($fine->getAmount());
             $transaction->setTransactionId('55506fad526f4');
             $manager->persist($transaction);            
+                    
+//             
+            
+            $user = new User();
+            $user->setFirstName('Raymond');
+            $user->setLastName('Domenech');
+            $user->setPassword('123');
+            $user->setEmail($faker->email);
+            $user->setNickname('R.Domene');
+            $user->setAddress('3 rue foch');
+            $user->setCity('Paris');
+            $user->setTel($faker->phoneNumber);
+            $user->setRoles(array("ROLE_ADMIN"));
+            $user->setSubscriber(1);
+            $user->setMyMoney($faker->randomFloat($nbMaxDecimals = 1, $min = 650, $max = 1550));
+            $user->setLatitude($faker->randomFloat($nbMaxDecimals = 6, $min = 48.834540, $max = 48.883781));
+            $user->setLongitude($faker->randomFloat($nbMaxDecimals = 6, $min = 2.296678, $max = 2.389375));            
+            $user->setCb('4485187294407276');
+            $user->setPostalCode('75016');            
+            $encoder= $this->container->get("security.password_encoder");
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encodedPassword);                        
+            $slug = $this->container->get("cocur_slugify")->slugify($user->getFirstName().'-'.$user->getLastName() );
+            $slug .= uniqid();
+            $user->setSlug($slug);
+            
+            $manager->persist($user);                 
+            
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            array_push($tab, $books[2]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
             
             
-        $manager->flush();
+            $manager->persist($cart);               
+            
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            array_push($tab, $books[2]);
+            array_push($tab, $books[3]);
+            array_push($tab, $books[4]);
+            array_push($tab, $books[5]);
+            array_push($tab, $books[6]);
+            array_push($tab, $books[7]);
+            array_push($tab, $books[8]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            
+            
+            $manager->persist($cart);                
+            
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            $manager->persist($cart);
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Endommagé');
+            $fine->setStatus('Payée');
+            $manager->persist($fine);
+            
+            $transaction = new transaction ();
+            $transaction->setFine($fine);
+            $transaction->setDateCreated($faker->dateTimeBetween($fine->getDateModified()));
+            $transaction->setDateValidationBq($transaction->getDateCreated());
+            $transaction->setStatus('payment_ok');
+            $transaction->setMessage('Payment created');
+            $transaction->setAmount($fine->getAmount());
+            $transaction->setTransactionId('55506fad526f3');
+            $manager->persist($transaction);
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Retard');
+            $fine->setStatus('Non payée');
+            $manager->persist($fine);            
+
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            $manager->persist($cart);
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Endommagé');
+            $fine->setStatus('Non payée');
+            $manager->persist($fine);            
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Retard');
+            $fine->setStatus('Payée');
+            $manager->persist($fine);
+            
+            $transaction = new transaction ();
+            $transaction->setFine($fine);
+            $transaction->setDateCreated($faker->dateTimeBetween($fine->getDateModified()));
+            $transaction->setDateValidationBq($transaction->getDateCreated());
+            $transaction->setStatus('payment_ok');
+            $transaction->setMessage('Payment created');
+            $transaction->setAmount($fine->getAmount());
+            $transaction->setTransactionId('55506fad526f4');
+            $manager->persist($transaction);               
+
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            $manager->persist($cart);
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Endommagé');
+            $fine->setStatus('Non payée');
+            $manager->persist($fine);            
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Retard');
+            $fine->setStatus('Payée');
+            $manager->persist($fine);
+            
+            $transaction = new transaction ();
+            $transaction->setFine($fine);
+            $transaction->setDateCreated($faker->dateTimeBetween($fine->getDateModified()));
+            $transaction->setDateValidationBq($transaction->getDateCreated());
+            $transaction->setStatus('payment_ok');
+            $transaction->setMessage('Payment created');
+            $transaction->setAmount($fine->getAmount());
+            $transaction->setTransactionId('55506fad526f4');
+            $manager->persist($transaction);                           
+
+            $cart = new cart();
+            
+            $cart->setUser($user);
+            $cart->setDateCreated($faker->dateTimeBetween(" - 3 years "));
+            $cart->setDateToBeReturn($faker->dateTimeThisMonth($max = 'now'));
+            $cart->setDateReallyReturned($faker->dateTimeBetween($cart->getDateToBeReturn()));
+            $cart->setDateModified($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $cart->setTotalAmont(25);
+            $cart->setStatus('Retourné');
+            
+            $bookRepo = $this->container->get("doctrine")->getRepository("AppBundle:Book");
+            $books = $bookRepo->findAll();
+            shuffle($books);
+            $tab = array ();
+            array_push($tab, $books[1]);
+            $cart->setBooks($tab);
+            
+            $pickupRepo = $this->container->get("doctrine")->getRepository("AppBundle:Pickupspot");
+            $pickups = $pickupRepo->findAll();
+            shuffle($pickups);
+            //$tab = array ();
+            //array_push($tab, );
+            $cart->setPickup($pickups[1]);
+            $manager->persist($cart);
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Endommagé');
+            $fine->setStatus('Non payée');
+            $manager->persist($fine);            
+            
+            $fine = new fine();
+            $fine->setCart($cart);
+            $fine->setDateCreated($faker->dateTimeBetween($cart->getDateReallyReturned()));
+            $fine->setDateModified($faker->dateTimeBetween($fine->getDateCreated()));
+            $fine->setDateLimit($faker->dateTimeBetween($fine->getDateModified()));
+            $fine->setAmount($faker->randomFloat($nbMaxDecimals = 2, $min = 7, $max = 28));
+            $fine->setMotif('Retard');
+            $fine->setStatus('Payée');
+            $manager->persist($fine);
+            
+            $transaction = new transaction ();
+            $transaction->setFine($fine);
+            $transaction->setDateCreated($faker->dateTimeBetween($fine->getDateModified()));
+            $transaction->setDateValidationBq($transaction->getDateCreated());
+            $transaction->setStatus('payment_ok');
+            $transaction->setMessage('Payment created');
+            $transaction->setAmount($fine->getAmount());
+            $transaction->setTransactionId('55506fad526f4');
+            $manager->persist($transaction);                           
+            
+            $manager->flush();
         /*echo $faker->name;*/
 
         //pour chaque user, créer plusieurs Story
