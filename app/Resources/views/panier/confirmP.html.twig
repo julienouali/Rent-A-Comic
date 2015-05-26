@@ -30,7 +30,7 @@
         var image = {
           url: "{{asset('image/supermarket.png')}}",
           // This marker is 20 pixels wide by 32 pixels tall.
-          size: new google.maps.Size(20, 32),
+          //size: new google.maps.Size(20, 32),
           // The origin for this image is 0,0.
           origin: new google.maps.Point(0,0),
           // The anchor for this image is the base of the flagpole at 0,32.
@@ -67,7 +67,7 @@
 
         var mapOptions = {
           center: userLatLng,
-          zoom: 10
+          zoom: 13
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
