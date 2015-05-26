@@ -95,6 +95,8 @@ class FineController extends Controller
         $em->persist($userObj);
                 
         $em->flush();
+        //$this->indexAction('Merci', $userObj->get);
+        $this->indexAction('Merci');
         //$pickup_spot->setLatitude($tab['results'][0]['geometry']['location']['lat']);
         //$pickup_spot->setLongitude($tab['results'][0]['geometry']['location']['lng']);        
         
@@ -120,7 +122,29 @@ class FineController extends Controller
                 );
         return $this->render('transaction/transac_details.html.twig',$param);*/
     }        
-    
+public function indexAction($name)
+{
+    $mailer = $this->get('mailer');
+    $message = $mailer->createMessage()
+        ->setSubject('Thanks for being your dept')
+        /*->setFrom('jip.dev.2k@gmail.com')*/
+        ->setFrom('fine.at.rent.a.comic@gmail.com')
+        ->setTo('jip.dev.2k@gmail.com')
+        
+        ->setBody(
+            $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                'emails/fine.html.twig',
+                array('name' => $name)
+            ),
+            'text/html'
+        )
+    ;
+    $mailer->send($message);
+
+    /*return $this->render(...);*/
+    return $this->redirectToRoute("home");
+}    
     
 //{{ path("fine_details", {"cart":cart.id}) }}    
     
