@@ -95,8 +95,8 @@ class FineController extends Controller
         $em->persist($userObj);
                 
         $em->flush();
-        //$this->indexAction('Merci', $userObj->get);
-        $this->indexAction('Merci');
+        $this->indexAction('Merci', $userObj->getFirstName(), $userObj->getLastName(), $fine->getAmount(),$cartId);
+        //$this->indexAction('Merci');
         //$pickup_spot->setLatitude($tab['results'][0]['geometry']['location']['lat']);
         //$pickup_spot->setLongitude($tab['results'][0]['geometry']['location']['lng']);        
         
@@ -122,11 +122,11 @@ class FineController extends Controller
                 );
         return $this->render('transaction/transac_details.html.twig',$param);*/
     }        
-public function indexAction($name)
+public function indexAction($name, $firstName, $lastName, $amount, $cartId)
 {
     $mailer = $this->get('mailer');
     $message = $mailer->createMessage()
-        ->setSubject('Thanks for being your dept')
+        ->setSubject('Thanks for paying your fine')
         /*->setFrom('jip.dev.2k@gmail.com')*/
         ->setFrom('fine.at.rent.a.comic@gmail.com')
         ->setTo('jip.dev.2k@gmail.com')
@@ -135,7 +135,11 @@ public function indexAction($name)
             $this->renderView(
                 // app/Resources/views/Emails/registration.html.twig
                 'emails/fine.html.twig',
-                array('name' => $name)
+                array('name' => $name,
+                    'first' => $firstName, 
+                    'last' => $lastName, 
+                    'amount' => $amount, 
+                    )
             ),
             'text/html'
         )
@@ -143,7 +147,12 @@ public function indexAction($name)
     $mailer->send($message);
 
     /*return $this->render(...);*/
-    return $this->redirectToRoute("home");
+    //return $this->redirectToRoute("home");
+        return $this->redirectToRoute("fine_details",
+                array(
+                        "cart" => $cartId
+                    )
+        );    
 }    
     
 //{{ path("fine_details", {"cart":cart.id}) }}    
