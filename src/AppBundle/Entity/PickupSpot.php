@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Pickup_spot
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Pickup_spotRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\PickupspotRepository")
  */
 class PickupSpot
 {

@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use \AppBundle\Entity\Cart;
+
 class DefaultController extends Controller
 {
     /**
@@ -44,8 +46,18 @@ class DefaultController extends Controller
         {
             $cartRepo = $this->getDoctrine()->getRepository('AppBundle:Cart');
             
-            $param = array('carts'=> $cartRepo->findCartEnCourByUser($this->getUser())
-                            );
+            $cart = $cartRepo->findCartEnCourByUser($this->getUser());
+            
+            if(!$cart)
+            {
+                $cart = new Cart();
+            }else{
+                $cart = $cart[0];
+            }
+                    
+            
+            
+            $param = array('cart'=> $cart);
             
             return $this->render('panier/panier.html.twig',$param);  
             

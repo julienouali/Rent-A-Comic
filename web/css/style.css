@@ -193,3 +193,9 @@ footer{
 footer span{
     margin-left: 740px;
 }
+
+
+#map-canvas{
+    width:450px;
+    height:350px;
+}

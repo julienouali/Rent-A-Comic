@@ -20,7 +20,7 @@ class CartRepository extends EntityRepository
                 ->addSelect('u')
                 ->addSelect('b')
                 ->leftJoin('c.user', 'u')
-                ->innerJoin('c.books', 'b')
+                ->leftJoin('c.books', 'b')
                 ->Where('c.status = :encour')
                 ->setParameter('encour', 'En Cours de Commande')
                 ->andwhere('c.user ='.$user->getId());
