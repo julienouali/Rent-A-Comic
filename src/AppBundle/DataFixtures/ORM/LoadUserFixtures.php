@@ -864,7 +864,8 @@ class DevDataFixtures extends ContainerAware implements FixtureInterface
             $user->setFirstName('Raymond');
             $user->setLastName('Domenech');
             $user->setPassword('123');
-            $user->setEmail($faker->email);
+            //$user->setEmail($faker->email);
+            $user->setEmail('jip.dev.2k@gmail.com');
             $user->setNickname('R.Domene');
             $user->setAddress('3 rue foch');
             $user->setCity('Paris');

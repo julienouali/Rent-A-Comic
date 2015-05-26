@@ -95,7 +95,7 @@ class FineController extends Controller
         $em->persist($userObj);
                 
         $em->flush();
-        $this->indexAction('Merci', $userObj->getFirstName(), $userObj->getLastName(), $fine->getAmount(),$cartId);
+        $this->indexAction('Merci', $userObj->getFirstName(), $userObj->getLastName(), $fine->getAmount(),$cartId, $userObj->getEmail());
         //$this->indexAction('Merci');
         //$pickup_spot->setLatitude($tab['results'][0]['geometry']['location']['lat']);
         //$pickup_spot->setLongitude($tab['results'][0]['geometry']['location']['lng']);        
@@ -122,7 +122,7 @@ class FineController extends Controller
                 );
         return $this->render('transaction/transac_details.html.twig',$param);*/
     }        
-public function indexAction($name, $firstName, $lastName, $amount, $cartId)
+public function indexAction($name, $firstName, $lastName, $amount, $cartId, $sendTo)
 {
     $mailer = $this->get('mailer');
     $message = $mailer->createMessage()
